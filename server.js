@@ -12,7 +12,7 @@ app.post('/purchaseList', (req, res) => {
 	return res.status(200).sendFile('/public/purchaseList', {root: __dirname });
 });
 
-app.get('purchaseList', (req, res) => {
+app.get('/purchaseList', (req, res) => {
 	return res.status(200).sendFile('/public/purchaseList', {root: __dirname });
 });
 
