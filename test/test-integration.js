@@ -13,6 +13,7 @@ describe('Static Contents', function() {
 			.get('/')
 			.then(function(res) {
 				res.should.have.status(200);
+				res.should.have.header('content-type', 'text/html; charset=UTF-8');
 			});
 	});
 
