@@ -9,11 +9,11 @@ app.get('/', (req, res) => {
 });
 
 app.post('/purchaseList', (req, res) => {
-	return res.status(200).sendFile('/public/purchaseList', {root: __dirname });
+	return res.status(200).sendFile('/public/purchase.html', {root: __dirname });
 });
 
 app.get('/purchaseList', (req, res) => {
-	return res.status(200).sendFile('/public/purchaseList', {root: __dirname });
+	return res.status(200).sendFile('/public/purchase.html', {root: __dirname });
 });
 
 module.exports = {app};
