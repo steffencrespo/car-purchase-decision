@@ -8,4 +8,12 @@ app.get('/', (req, res) => {
 	return res.status(200).sendFile('/public/index.html', {root: __dirname });
 });
 
+app.post('/purchaseList', (req, res) => {
+	return res.status(200).sendFile('/public/purchaseList', {root: __dirname });
+});
+
+app.get('purchaseList', (req, res) => {
+	return res.status(200).sendFile('/public/purchaseList', {root: __dirname });
+});
+
 module.exports = {app};
