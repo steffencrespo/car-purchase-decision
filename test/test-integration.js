@@ -19,6 +19,18 @@ describe('Root', function() {
 
 });
 
+describe('User Authentication', function() {
+	it('should return 200 and the login page on hitting /login', function() {
+		let _res;
+		return chai.request(app)
+		.get('/login')
+		.then(function(res) {
+			res.should.have.status(200);
+			res.should.have.header('content-type', 'text/html; charset=UTF-8');
+		});
+	});
+});
+
 describe('Purchase List Calls', function(){
 
 	it('should return 200 and html file on a GET request to purchaseList method', function(){
