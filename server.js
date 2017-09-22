@@ -16,4 +16,12 @@ app.get('/purchaseList', (req, res) => {
 	return res.status(200).sendFile('/public/purchase.html', {root: __dirname });
 });
 
+app.put('/purchaseList/:id', (req, res) => {
+	return res.status(200).sendFile('/public/purchase.html', {root: __dirname});
+});
+
+app.delete('/purchaseList/:id', (req, res) => {
+	return res.status(201).end();
+});
+
 module.exports = {app};

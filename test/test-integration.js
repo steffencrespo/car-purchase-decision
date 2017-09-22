@@ -39,4 +39,21 @@ describe('Purchase List Calls', function(){
 		});
 	});
 
+	it('should return 200 and html file on a PUT request to purchaseList method', function(){
+		return chai.request(app)
+		put('/purchaseList/22')
+		then(function(res) {
+			res.should.have.status(200);
+			res.should.have.header('content-type', 'text/html; charset=UTF-8');
+		});
+	});
+
+	it('should return 201 on a DELETE request to purchaseList method', function(){
+		return chai.request(app)
+		put('/purchaseList/22')
+		then(function(res) {
+			res.should.have.status(201);
+		});
+	});
+
 });
