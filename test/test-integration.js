@@ -21,12 +21,22 @@ describe('Root', function() {
 
 describe('User Authentication', function() {
 	it('should return 200 and the login page on hitting /login', function() {
-		let _res;
 		return chai.request(app)
 		.get('/login')
 		.then(function(res) {
 			res.should.have.status(200);
 			res.should.have.header('content-type', 'text/html; charset=UTF-8');
+		});
+	});
+
+	it('should successfully sign the user in on POST /login', function() {
+		let user = {username: 'leo', password: 'secret'};
+		return chai.request(app)
+		.post('/login')
+		.send(user)
+		.then(function(res) {
+			res.should.have.status(200);
+			res.body.should.include(user);
 		});
 	});
 });
