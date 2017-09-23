@@ -48,8 +48,24 @@ const MY_FUTURE_CARS = {
 	]
 }
 
-function getCarsListForUser(userId, listId) {
-	return MY_FUTURE_CARS;
+// will take care of calling the service and passing the returned data into the callback
+function getCarsListForUser(callbackFn) {
+	setTimeout(function() { callbackFn(MY_FUTURE_CARS)}, 100);
 }
 
-module.exports = {getCarsListForUser};
+// takes a list of cars as parameter, which will be returned from a service
+// this function is passed as callback to the getCarListForUser method so it can get the list of cars as param
+function renderListContentsView(list) {
+	for(index in list.cars) {
+		let car = list.cars[index];
+		$('body').append(`<p> ${car.year} - ${car.make} - ${car.model} - ${car.listedPrice} </p>`);
+	}
+}
+
+function getAndRenderCarsList() {
+	getCarsListForUser(renderListContentsView);
+}
+
+$(function() {
+	getAndRenderCarsList();
+});
