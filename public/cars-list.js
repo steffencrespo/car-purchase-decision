@@ -58,7 +58,7 @@ function getCarsListForUser(callbackFn) {
 function renderListContentsView(list) {
 	for(index in list.cars) {
 		let car = list.cars[index];
-		$('body').append(`<p> ${car.year} - ${car.make} - ${car.model} - ${car.listedPrice} </p>`);
+		$('#js-cars-list').append(`<p> ${car.year} - ${car.make} - ${car.model} - ${car.listedPrice} </p>`);
 	}
 }
 
