@@ -64,11 +64,9 @@ function renderListContentsView(list) {
 
 function loadAllLinkHandlers() {
 	handleLearnMoreButton();
-	handleSignupLink();
-	handleLoginLink();
+	handleSignupSubmit();
+	handleLoginSubmit();
 	handleLogoutLink();
-	handleHomeLink();
-	handleProfileLink();
 }
 
 function handleLearnMoreButton() {
@@ -78,14 +76,14 @@ function handleLearnMoreButton() {
 	});
 }
 
-function handleSignupLink() {
-	$('.js-signup-link').on('click', function(){
+function handleSignupSubmit() {
+	$('#js-submit-signup').on('click', function(){
 		alert('Goes to Signup')
 	});
 }
 
-function handleLoginLink() {
-	$('.js-login-link').on('click', function(){
+function handleLoginSubmit() {
+	$('#js-submit-login').on('click', function(){
 		alert('Goes to Login')
 	});
 }
@@ -93,18 +91,6 @@ function handleLoginLink() {
 function handleLogoutLink() {
 	$('.js-logout-link').on('click', function(){
 		alert('Goes to Logout')
-	});
-}
-
-function handleHomeLink() {
-	$('.js-home-link').on('click', function(){
-		alert('Goes to Home')
-	});
-}
-
-function handleProfileLink() {
-	$('.js-profile-link').on('click', function(){
-		alert('Goes to Profile')
 	});
 }
 
