@@ -2,48 +2,35 @@
 <html>
 <head>
 	<title>Login</title>
-	<link
-      rel="stylesheet"
-      href="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.css">
+    <script
+    src="https://code.jquery.com/jquery-3.2.1.min.js"
+    integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+    crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+  <!-- Latest compiled and minified JavaScript -->
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 </head>
-<body>
-	<header class="mdc-toolbar">
-		  <div class="mdc-toolbar__row mdc-tab-bar">
-		    <section class="mdc-toolbar__section mdc-toolbar__section--align-start">
-		    	<span class="mdc-toolbar__title">What car am I going to buy?</span>
-		    </section>
-		    <section class="mdc-toolbar__section">
-		    	Login - enter your username and password
-		    </section>
-		    <section class="mdc-toolbar__section mdc-toolbar__section--align-end">
-	    		<a class="js-login-link mdc-tab" href="#one">Log in</a>
-		      	<a class="js-signup-link mdc-tab" href="#two">Sign up</a>
-		    </section>
-		  </div>
-	</header>
-	<main>
-	  <div class="mdc-card mdc-form-field mdc-form-field--align-end">
-	  	<form id="login-form">
-		    <section class="mdc-card__primary">
-		      <h1 class="mdc-card__title mdc-card__title">
-		      	<label for="username-login">Username</label>
-		      	<input type="text" name="username-login">
-		      </h1>
-		      <h1 class="mdc-card__subtitle">
-				<label for="password-login">Password</label>
-				<input type="password" name="password-login">
-		      </h1>
-		    </section>
-		    <section class="mdc-card__actions">
-		      <button type="submit" class="mdc-button mdc-button--compact mdc-card__action">Log In</button>
-		    </section>
-		</form>
-	  </div>
-	</main>
-	<script
-		src="https://code.jquery.com/jquery-3.2.1.min.js"
-		integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
-		crossorigin="anonymous"></script>
-  	<script src="cars-list.js"></script>
+<body class="container">
+  <div class="row">
+    <h2>What car am I going to buy?</h2>
+    <h3>Login - enter your username and password</h3>
+    <a class="js-login-link" href="/">Home</a>
+    <a class="js-signup-link" href="/signup">Sign up</a>
+    <div class="col-xs-12 col-sm-6 col-sm-offset-3">
+      <form id="login-form">
+        <div class="form-group">
+          <label for="username-login">Username</label>
+          <input type="text" id="username-login">
+        </div> 
+        <div class="form-group">
+          <label for="password-login">Password</label>
+          <input type="password" id="password-login">
+        </div>
+        <button type="submit" class="btn btn-primary">Log In</button>
+    </form>
+    </div>
+  </div>
+  <script src="cars-list.js"></script>
 </body>
 </html>
