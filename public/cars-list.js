@@ -63,11 +63,19 @@ function renderListContentsView(list) {
 }
 
 function loadAllLinkHandlers() {
+	handleLearnMoreButton();
 	handleSignupLink();
 	handleLoginLink();
 	handleLogoutLink();
 	handleHomeLink();
 	handleProfileLink();
+}
+
+function handleLearnMoreButton() {
+	$('#js-learn-more').on('click', function() {
+		$('#js-welcome-instructions').toggle();
+		$('#js-welcome-message').toggle();
+	});
 }
 
 function handleSignupLink() {

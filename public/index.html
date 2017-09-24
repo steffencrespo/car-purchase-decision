@@ -36,10 +36,11 @@
   <div class="row jumbotron" id="js-welcome-message">
     <h1>You want to buy a car <small>but there are so many models, dealers and websites...</small></h1>
     <p>don't loose track of your options. Track them with Whacambuy - What car am I going to buy</p>
-    <p><a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a></p>
+    <p><a class="btn btn-primary btn-lg" id="js-learn-more" role="button">Learn more</a></p>
     <p><a href="/login">already a user?</a></p>
   </div>
   <div class="row jumbotron" id="js-welcome-instructions" hidden="true">
+    <h1>Getting <small>but there are so many models, dealers and websites...</small></h1>
     <div class="col-xs-12 col-sm-6">
       <ul class="media-list">
         <li class="media">
@@ -48,72 +49,70 @@
           </div>
           <div class="media-body">
             <h4 class="media-heading">Create your user profile</h4>
-            <ul class="media-list">
-              <li class="media">
-                <div class="media-left">
-                  <span class="glyphicon glyphicon-th-list"></span>
-                </div>
-                <div class="media-body">
-                  <h4 class="media-heading">Start a list of potential purchases</h4>
-                </div>
-              </li>
-              <li class="media">
-                <div class="media-left">
-                  <span class="glyphicon glyphicon-search"></span>
-                </div>
-                <div class="media-body">
-                  <h4 class="media-heading">Search for the cars you like</h4>
-                </div>
-              </li>
-              <li class="media">
-                <div class="media-left">
-                  <span class="glyphicon glyphicon-thumbs-up"></span>
-                </div>
-                <div class="media-body">
-                  <h4 class="media-heading">Add here the ones you like</h4>
-                </div>
-              </li>
-              <li class="media">
-                <div class="media-left">
-                  <span class="glyphicon glyphicon-usd"></span>
-                </div>
-                <div class="media-body">
-                  <h4 class="media-heading">Generate financing estimates</h4>
-                </div>
-              </li>
-              <li class="media">
-                <div class="media-left">
-                  <span class="glyphicon glyphicon-envelope"></span>
-                </div>
-                <div class="media-body">
-                  <h4 class="media-heading">Send offer letters to sellers</h4>
-                </div>
-              </li>
-              <li class="media">
-                <div class="media-left">
-                  <span class="glyphicon glyphicon-repeat"></span>
-                </div>
-                <div class="media-body">
-                  <h4 class="media-heading">Keep your list up to date</h4>
-                </div>
-              </li>
-              <li class="media">
-                <div class="media-left">
-                  <span class="glyphicon glyphicon-heart"></span>
-                </div>
-                <div class="media-body">
-                  <h4 class="media-heading">Found the best deal? Buy it! Mission accomplished.</h4>
-                </div>
-              </li>
-              <li class="media">
-                <div class="media-left">
-                  <span class="glyphicon glyphicon-refresh"></span>
-                </div>
-                <div class="media-body">
-                  <h4 class="media-heading">Time for another change? Come back and start a new list</h4>
-                </div>
-              </li>
-            </ul>
+          </div>
+        </li>
+        <li class="media">
+          <div class="media-left">
+            <span class="glyphicon glyphicon-th-list"></span>
+          </div>
+          <div class="media-body">
+            <h4 class="media-heading">Start a list of potential purchases</h4>
+          </div>
+        </li>
+        <li class="media">
+          <div class="media-left">
+            <span class="glyphicon glyphicon-search"></span>
+          </div>
+          <div class="media-body">
+            <h4 class="media-heading">Search for the cars you like</h4>
+          </div>
+        </li>
+        <li class="media">
+          <div class="media-left">
+            <span class="glyphicon glyphicon-thumbs-up"></span>
+          </div>
+          <div class="media-body">
+            <h4 class="media-heading">Add here the ones you like</h4>
+          </div>
+        </li>
+        <li class="media">
+          <div class="media-left">
+            <span class="glyphicon glyphicon-usd"></span>
+          </div>
+          <div class="media-body">
+            <h4 class="media-heading">Generate financing estimates</h4>
+          </div>
+        </li>
+        <li class="media">
+          <div class="media-left">
+            <span class="glyphicon glyphicon-envelope"></span>
+          </div>
+          <div class="media-body">
+            <h4 class="media-heading">Send offer letters to sellers</h4>
+          </div>
+        </li>
+        <li class="media">
+          <div class="media-left">
+            <span class="glyphicon glyphicon-repeat"></span>
+          </div>
+          <div class="media-body">
+            <h4 class="media-heading">Keep your list up to date</h4>
+          </div>
+        </li>
+        <li class="media">
+          <div class="media-left">
+            <span class="glyphicon glyphicon-heart"></span>
+          </div>
+          <div class="media-body">
+            <h4 class="media-heading">Found the best deal? Buy it! Mission accomplished.</h4>
+          </div>
+        </li>
+        <li class="media">
+          <div class="media-left">
+            <span class="glyphicon glyphicon-refresh"></span>
+          </div>
+          <div class="media-body">
+            <h4 class="media-heading">Time for another change? Come back and start a new list</h4>
           </div>
         </li>
         <li class="media">
@@ -122,6 +121,6 @@
       </ul>
     </div>
   </div>
-    <script src="cars-list.js"></script>
+  <script src="cars-list.js"></script>
 </body>
 </html>
