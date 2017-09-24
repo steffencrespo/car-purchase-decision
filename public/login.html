@@ -22,15 +22,23 @@
 		  </div>
 	</header>
 	<main>
-		<section role="existing user login" class="mdc-form-field mdc-form-field--align-end">
-			<form id="login-form">
-				<label for="username-login">Username</label>
-				<input type="text" name="username-login">
+	  <div class="mdc-card mdc-form-field mdc-form-field--align-end">
+	  	<form id="login-form">
+		    <section class="mdc-card__primary">
+		      <h1 class="mdc-card__title mdc-card__title">
+		      	<label for="username-login">Username</label>
+		      	<input type="text" name="username-login">
+		      </h1>
+		      <h1 class="mdc-card__subtitle">
 				<label for="password-login">Password</label>
 				<input type="password" name="password-login">
-				<button type="submit">Log In</button>
-			</form>
-		</section>
+		      </h1>
+		    </section>
+		    <section class="mdc-card__actions">
+		      <button type="submit" class="mdc-button mdc-button--compact mdc-card__action">Log In</button>
+		    </section>
+		</form>
+	  </div>
 	</main>
 	<script
 		src="https://code.jquery.com/jquery-3.2.1.min.js"
