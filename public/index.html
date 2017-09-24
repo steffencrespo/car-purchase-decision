@@ -1,68 +1,53 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Make the right choice. Buy the car you always wanted</title>
-	<link
-      rel="stylesheet"
-      href="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.css">
+  <title>Make the right choice. Buy the car you always wanted</title>
+  <script
+    src="https://code.jquery.com/jquery-3.2.1.min.js"
+    integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+    crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+  <!-- Latest compiled and minified JavaScript -->
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 </head>
-<body>
-	<header class="mdc-toolbar">
-		  <div class="mdc-toolbar__row mdc-tab-bar">
-		    <section class="mdc-toolbar__section mdc-toolbar__section--align-start">
-		      <span class="mdc-toolbar__title">What car am I going to buy?</span>
-		    </section>
-		    <section class="mdc-toolbar__section">
-		    	Welcome!
-		    </section>
-		    <section class="mdc-toolbar__section mdc-toolbar__section--align-end">
-	    		<a class="js-login-link mdc-tab" href="#one">Log in</a>
-		      	<a class="js-signup-link mdc-tab" href="#two">Sign up</a>
-		    </section>
-		  </div>
-	</header>
-	<main>
-		<section>
-			<div class="mdc-layout-grid">
-				<div class="mdc-layout-grid__inner">
-					<div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-6--align-center">
-						<h2>
-							<p>You need to buy a car</p>
-							<p>But there are thousands of models
-								<p>Thousands of dealers</p> 
-								<p>thousands of car listing websites</p>
-						</h2>
-					</div>
-					<div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-6--align-top">
-						<p>You end up buying by impulse 
-						<h1>or</h1> 
-						with less confidence because there is no easy way to keep track of all the cars you're looking for</p>
-					</div>
-					<div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-6--align-bottom">
-						<h1>That's when this tool comes in handy</h1>
-					</div>
-					<div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-4"></div>
-					<div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-2">
-					</div>
-				</div>
-			</div>	
-		</section>
-		<h3><p>How to use</p></h3>
-		<ul>
-			<li>Already a user? <a href="" class="js-login-link">Log in</a></li>
-			<li>New user? <a href="" class="js-signup-link">Sign up</a> and to have your own profile</li>
-			<li>Start your list of potential purchases</li>
-			<li>Search for the cars you like</li>
-			<li>Add here each and every car you found interesting</li>
-			<li>Generate financing estimates</li>
-			<li>Once you think you are good to start negotiating, generate offer letters and send to the seller</li>
-			<li>Keep each single car entry updated with your actions such as offer, counteroffer, sold...</li>
-		</ul>
-	</main>
-	<script
-		src="https://code.jquery.com/jquery-3.2.1.min.js"
-		integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
-		crossorigin="anonymous"></script>
-  	<script src="cars-list.js"></script>
+<body class="container">
+  <div class="row">
+    <div class="col-xs-12 col-sm-6">
+      <div>
+        <h2>What car am I going to buy?</h2>
+        Welcome!
+        <a href="#one">Log in</a>
+        <a href="#two">Sign up</a>
+      </div>      
+      <div>
+        <h2>
+          <p>You need to buy a car</p>
+          <p>But there are thousands of models</p>
+          <p>Thousands of dealers</p> 
+          <p>thousands of car listing websites</p>
+        </h2>
+          <p>You end up buying by impulse or 
+          with less confidence because there is no easy way to keep track of all the cars you're looking for</p>
+        </div>
+        <div>
+          <h1>That's when this tool comes in handy</h1>
+        </div>
+    </div>
+    <div class="col-xs-12 col-sm-6">
+      <h3>How to use</h3>
+      <ul>
+        <li>Already a user? <a href="" class="js-login-link">Log in</a></li>
+        <li>New user? <a href="" class="js-signup-link">Sign up</a> and to have your own profile</li>
+        <li>Start your list of potential purchases</li>
+        <li>Search for the cars you like</li>
+        <li>Add here each and every car you found interesting</li>
+        <li>Generate financing estimates</li>
+        <li>Once you think you are good to start negotiating, generate offer letters and send to the seller</li>
+        <li>Keep each single car entry updated with your actions such as offer, counteroffer, sold...</li>
+      </ul>
+    </div>
+  </div>
+    <script src="cars-list.js"></script>
 </body>
 </html>
