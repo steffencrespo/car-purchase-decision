@@ -2,11 +2,24 @@
 <html>
 <head>
 	<title> What Should I buy? | Make the right deal, buy the right car </title>
+	<link
+      rel="stylesheet"
+      href="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.css">
 </head>
 <body>
-	<header>
-		<h1>What car am I going to buy?</h1>
-		<h2>Leo's new sports car for January 2018</h2>
+	<header class="mdc-toolbar">
+		<div class="mdc-toolbar__row mdc-tab-bar">
+			<section class="mdc-toolbar__section mdc-toolbar__section--align-start">
+				<span class="mdc-toolbar__title">What car am I going to buy?</span>
+		    </section>
+		    <section class="mdc-toolbar__section">
+		    	Leo's new sports car for January 2018
+		    </section>
+		    <section class="mdc-toolbar__section mdc-toolbar__section--align-end">
+	    		<a class="mdc-tab" href="#one">Log out</a>
+		      	<a class="mdc-tab" href="#two">My Profile</a>
+		    </section>
+		</div>
 	</header>
 	<script
 	  src="https://code.jquery.com/jquery-3.2.1.min.js"
