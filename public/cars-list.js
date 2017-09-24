@@ -62,10 +62,49 @@ function renderListContentsView(list) {
 	}
 }
 
+function loadAllLinkHandlers() {
+	handleSignupLink();
+	handleLoginLink();
+	handleLogoutLink();
+	handleHomeLink();
+	handleProfileLink();
+}
+
+function handleSignupLink() {
+	$('.js-signup-link').on('click', function(){
+		alert('Goes to Signup')
+	});
+}
+
+function handleLoginLink() {
+	$('.js-login-link').on('click', function(){
+		alert('Goes to Login')
+	});
+}
+
+function handleLogoutLink() {
+	$('.js-logout-link').on('click', function(){
+		alert('Goes to Logout')
+	});
+}
+
+function handleHomeLink() {
+	$('.js-home-link').on('click', function(){
+		alert('Goes to Home')
+	});
+}
+
+function handleProfileLink() {
+	$('.js-profile-link').on('click', function(){
+		alert('Goes to Profile')
+	});
+}
+
 function getAndRenderCarsList() {
 	getCarsListForUser(renderListContentsView);
 }
 
 $(function() {
 	getAndRenderCarsList();
+	loadAllLinkHandlers();
 });
