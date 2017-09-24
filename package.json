@@ -10,9 +10,6 @@
   "author": "leonardo steffen",
   "license": "ISC",
   "dependencies": {
-    "@material/form-field": "^0.2.16",
-    "@material/layout-grid": "^0.4.4",
-    "@material/tabs": "^0.3.0",
     "body-parser": "^1.18.2",
     "express": "^4.15.4"
   },
