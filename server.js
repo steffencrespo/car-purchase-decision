@@ -18,6 +18,14 @@ app.post('/login', (req, res) => {
 	return res.status(200).json(req.body);
 });
 
+app.get('/signup', (req, res) => {
+	return res.status(200).sendFile('/public/signup.html', {root: __dirname});
+});
+
+app.post('/signup', (req, res) => {
+	return res.status(201).end();
+});
+
 app.post('/purchaseList', (req, res) => {
 	return res.status(200).sendFile('/public/purchase.html', {root: __dirname });
 });

@@ -41,6 +41,24 @@ describe('User Authentication', function() {
 	});
 });
 
+describe('User Registration', function(){
+	it('should return 200 and the signup page on hitting /signup', function(){
+		return chai.request(app)
+		.get('/signup')
+		.then(function(res) {
+			res.should.have.status(200);
+		});
+	});
+
+	it('should return 200 and the signup page on hitting /signup', function(){
+		return chai.request(app)
+		.post('/signup')
+		.then(function(res) {
+			res.should.have.status(201);
+		});
+	});
+});
+
 describe('Purchase List Calls', function(){
 
 	it('should return 200 and html file on a GET request to purchaseList method', function(){
