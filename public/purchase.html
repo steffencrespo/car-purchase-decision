@@ -2,34 +2,27 @@
 <html>
 <head>
 	<title> What Should I buy? | Make the right deal, buy the right car </title>
-	<link
-      rel="stylesheet"
-      href="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.css">
+  <script
+    src="https://code.jquery.com/jquery-3.2.1.min.js"
+    integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+    crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+  <!-- Latest compiled and minified JavaScript -->
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 </head>
-<body>
-	<header class="mdc-toolbar">
-		<div class="mdc-toolbar__row mdc-tab-bar">
-			<section class="mdc-toolbar__section mdc-toolbar__section--align-start">
-				<span class="mdc-toolbar__title">What car am I going to buy?</span>
-		    </section>
-		    <section class="mdc-toolbar__section">
-		    	Leo's new sports car for January 2018
-		    </section>
-		    <section class="mdc-toolbar__section mdc-toolbar__section--align-end">
-	    		<a class="js-logout-link mdc-tab" href="#one">Log out</a>
-		      	<a class="js-profile-link mdc-tab" href="#two">My Profile</a>
-		    </section>
-		</div>
-	</header>
-	<main>
-		<section id="js-cars-list">
-			
-		</section>
-	</main>
-	<script
-	  src="https://code.jquery.com/jquery-3.2.1.min.js"
-	  integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
-	  crossorigin="anonymous"></script>
-  	<script src="cars-list.js"></script>
+<body class="container">
+	<div class="row">
+		<div class="col col-xs-12 col-sm-6">
+			<h2>What car am I going to buy?</h2>
+	    <h3>Leo's new sports car for January 2018</h3>
+    	<a class="js-logout-link" href="/logout">Log out</a>
+	    <a class="js-profile-link" href="#two">My Profile</a>
+	  </div>
+	</div>
+	<section class="col col-xs-12 col-sm-6" id="js-cars-list">
+		<!-- Here is where the cars are going to be rendered -->
+	</section>
+  <script src="cars-list.js"></script>
 </body>
 </html>
