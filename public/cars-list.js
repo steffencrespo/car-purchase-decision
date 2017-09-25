@@ -45,6 +45,28 @@ const MY_FUTURE_CARS = {
 			"listedPrice":"23700",
 			"comments":""
 		},
+		{
+			"id":"5",
+			"make":"Chevrolet",
+			"model":"Corvette",
+			"year": "2015",
+			"trim":"Stingray",
+			"engine":"6.2 V8",
+			"dealerUrl":"",
+			"listedPrice":"43700",
+			"comments":""
+		},
+		{
+			"id":"7",
+			"make":"Chevrolet",
+			"model":"Impala",
+			"year": "1960",
+			"trim":"Hardtop Sport",
+			"engine":"5.7 V8",
+			"dealerUrl":"",
+			"listedPrice":"10400",
+			"comments":""
+		},
 	]
 }
 
@@ -67,7 +89,7 @@ function renderSingleCarObject(car) {
 	`
 	<div class="col-sm-6 col-md-4">
 	  <div class="thumbnail">
-	    <img src="./cars-list" alt="...">
+	    <img src="./images/${car.make}.png" alt="...">
 	    <div class="caption">
 	      <h3>${car.year} ${car.make} ${car.model}</h3>
 	      <p>Asking price $${car.listedPrice}</p>
