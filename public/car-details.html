@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Add a car</title>  
+  <script
+    src="https://code.jquery.com/jquery-3.2.1.min.js"
+    integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+    crossorigin="anonymous"></script>
+  <link rel="stylesheet" type="text/css" href="./main.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+  <!-- Latest compiled and minified JavaScript -->
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+</head>
+<body class="container">
+  <nav class="row navbar navbar-default">
+    <div class="container-fluid">
+      <!-- Brand and toggle get grouped for better mobile display -->
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="#">What car am I going to buy?</a>
+      </div>
+      <!-- Collect the nav links, forms, and other content for toggling -->
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav navbar-right">
+          <li><a href="/purchaseList">My list</a></li>
+          <li><a href="/logout">Log out</a></li>
+        </ul>
+      </div><!-- /.navbar-collapse -->
+    </div><!-- /.container-fluid -->
+  </nav>
+  <div class="row">
+      <div class="col-md-offset-5 col-md-3">
+          <div class="form-login">
+          <h4>Car details</h4>
+          <input type="text" id="car-make" class="form-control input-sm chat-input" placeholder="make" />
+          </br>
+          <input type="text" id="car-model" class="form-control input-sm chat-input" placeholder="model" />
+          </br>
+          <input type="text" id="car-year" class="form-control input-sm chat-input" placeholder="model year" />
+          </br>
+          <input type="text" id="car-price" class="form-control input-sm chat-input" placeholder="asking price" />
+          </br>
+          <input type="text" id="car-seller-name" class="form-control input-sm chat-input" placeholder="seller's name" />
+          </br>
+          <input type="phone" id="car-seller-phone" class="form-control input-sm chat-input" placeholder="seller's phone" />
+          </br>
+          <input type="email" id="car-seller-email" class="form-control input-sm chat-input" placeholder="seller's email" />
+          </br>
+          <input type="website" id="car-seller-website" class="form-control input-sm chat-input" placeholder="seller's web site" />
+          </br>
+          <div class="wrapper">
+          <span class="group-btn">     
+              <a href="#" class="btn btn-primary btn-md" id="js-submit-signup">submit <i class="fa fa-sign-in"></i></a>
+          </span>
+      </div>
+  </div>
+  <script src="cars-list.js"></script>
+</body>
+</html>

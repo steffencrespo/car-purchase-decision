@@ -26,6 +26,10 @@ app.post('/signup', (req, res) => {
 	return res.status(201).end();
 });
 
+app.get('/carDetails', (req, res) => {
+  return res.status(200).sendFile('/public/car-details.html', {root: __dirname});
+})
+
 app.post('/purchaseList', (req, res) => {
 	return res.status(200).sendFile('/public/purchase.html', {root: __dirname });
 });

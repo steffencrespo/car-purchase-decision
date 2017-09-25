@@ -59,6 +59,16 @@ describe('User Registration', function(){
 	});
 });
 
+describe('Car Details Calls', function() {
+	it('should return 200 and the car details page on a GET request to carDetails', function() {
+		return chai.request(app)
+		.get('/carDetails')
+		.then(function(res) {
+			res.should.have.status(200);
+		});
+	});
+});
+
 describe('Purchase List Calls', function(){
 
 	it('should return 200 and html file on a GET request to purchaseList method', function(){
@@ -95,5 +105,4 @@ describe('Purchase List Calls', function(){
 			res.should.have.status(201);
 		});
 	});
-
 });
