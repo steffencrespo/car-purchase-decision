@@ -93,7 +93,10 @@ function renderSingleCarObject(car) {
 	    <div class="caption">
 	      <h3>${car.year} ${car.make} ${car.model}</h3>
 	      <p>Asking price $${car.listedPrice}</p>
-	      <p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p>
+	      <p><a href="#" class="btn btn-primary" role="button">Details</a> 
+	      	<a href="#" class="btn btn-default" role="button">Make an offer</a>
+	      	<a href="#" class="btn btn-default" role="button">Remove</a>
+	      </p>
 	    </div>
 	  </div>
 	</div>
