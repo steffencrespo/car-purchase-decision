@@ -96,6 +96,7 @@ function handleLogoutLink() {
 
 function authenticateUser() {
 	// need to verify the authentication and then redirect to the correct page
+	window.location.href = '/purchaseList';
 }
 
 function getAndRenderCarsList() {
