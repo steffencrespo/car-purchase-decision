@@ -36,18 +36,21 @@
   </nav>
   <div class="row">
       <div class="col-md-offset-5 col-md-3">
-          <div class="form-login">
+          <form class="form-login" id="js-form-login" data-toggle="validator">
             <h4>Welcome back!</h4>
-            <input type="text" id="userName" class="form-control input-sm chat-input" placeholder="username" />
+            <input type="text" id="userName" class="form-control input-sm chat-input" placeholder="username" required>
+            <div class="help-block with-errors"></div>
             </br>
-            <input type="text" id="userPassword" class="form-control input-sm chat-input" placeholder="password" />
+            <input type="text" id="userPassword" class="form-control input-sm chat-input" placeholder="password" required>
+            <div class="help-block with-errors"></div>
             </br>
             <div class="wrapper">
               <span class="group-btn">     
-                  <a href="/purchaseList" id="js-submit-login" class="btn btn-primary btn-md">login <i class="fa fa-sign-in"></i></a>
+                  <!-- <a href="/purchaseList" id="js-submit-login" class="btn btn-primary btn-md">login <i class="fa fa-sign-in"></i></a> -->
+                  <button type="submit" id="js-submit-login" class="btn btn-primary">Submit</button>
               </span>
             </div>
-          </div>
+          </form>
       </div>
   </div>
   <script src="cars-list.js"></script>
