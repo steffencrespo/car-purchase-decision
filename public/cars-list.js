@@ -84,7 +84,7 @@ function handleSignupSubmit() {
 
 function handleLoginSubmit() {
 	$('#js-submit-login').on('click', function(){
-		alert('Goes to Login')
+		authenticateUser();
 	});
 }
 
@@ -92,6 +92,10 @@ function handleLogoutLink() {
 	$('.js-logout-link').on('click', function(){
 		alert('Goes to Logout')
 	});
+}
+
+function authenticateUser() {
+	// need to verify the authentication and then redirect to the correct page
 }
 
 function getAndRenderCarsList() {
