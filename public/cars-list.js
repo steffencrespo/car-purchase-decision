@@ -58,8 +58,25 @@ function getCarsListForUser(callbackFn) {
 function renderListContentsView(list) {
 	for(index in list.cars) {
 		let car = list.cars[index];
-		$('#js-cars-list').append(`<p> ${car.year} - ${car.make} - ${car.model} - ${car.listedPrice} </p>`);
+		$('#js-cars-list').append(renderSingleCarObject(car));
 	}
+}
+
+function renderSingleCarObject(car) {
+	let carView = 
+	`
+	<div class="col-sm-6 col-md-4">
+	  <div class="thumbnail">
+	    <img src="./cars-list" alt="...">
+	    <div class="caption">
+	      <h3>${car.year} ${car.make} ${car.model}</h3>
+	      <p>Asking price $${car.listedPrice}</p>
+	      <p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p>
+	    </div>
+	  </div>
+	</div>
+	`
+	return carView;
 }
 
 function loadAllLinkHandlers() {
