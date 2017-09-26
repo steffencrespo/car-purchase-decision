@@ -109,7 +109,7 @@ function loadAllLinkHandlers() {
 	handleSignupSubmit();
 	handleLoginSubmit();
 	handleLogoutLink();
-	handleAddNewCarSubmit();
+	handleAddNewCarButton();
 }
 
 function handleLearnMoreButton() {
@@ -137,9 +137,8 @@ function handleLogoutLink() {
 	});
 }
 
-function handleAddNewCarSubmit() {
+function handleAddNewCarButton() {
 	$('#js-add-new-car').on('click', function() {
-		alert('clicked');
 		window.location.href = '/carDetails';
 	});
 }
