@@ -109,6 +109,7 @@ function loadAllLinkHandlers() {
 	handleSignupSubmit();
 	handleLoginSubmit();
 	handleLogoutLink();
+	handleAddNewCarSubmit();
 }
 
 function handleLearnMoreButton() {
@@ -119,20 +120,27 @@ function handleLearnMoreButton() {
 }
 
 function handleSignupSubmit() {
-	$('#js-submit-signup').on('click', function(){
+	$('#js-submit-signup').on('click', function() {
 		alert('Goes to Signup')
 	});
 }
 
 function handleLoginSubmit() {
-	$('#js-submit-login').on('click', function(){
+	$('#js-submit-login').on('click', function() {
 		authenticateUser();
 	});
 }
 
 function handleLogoutLink() {
-	$('.js-logout-link').on('click', function(){
+	$('.js-logout-link').on('click', function() {
 		alert('Goes to Logout')
+	});
+}
+
+function handleAddNewCarSubmit() {
+	$('#js-add-new-car').on('click', function() {
+		alert('clicked');
+		window.location.href = '/carDetails';
 	});
 }
 
@@ -143,6 +151,11 @@ function authenticateUser() {
 
 function getAndRenderCarsList() {
 	getCarsListForUser(renderListContentsView);
+}
+
+function saveNewCarDetails(car) {
+	let uniqueId = Math.floor(21047*(Math.random()));
+	return MY_FUTURE_CARS.cars.add({"id": uniqueId});
 }
 
 $(function() {
