@@ -1,10 +1,17 @@
 const bodyParser = require('body-parser');
+const mongoose = require('mongoose');
 const express = require('express');
-const app = express();
 
+mongoose.Promise = global.Promise;
+
+const app = express();
 app.use(bodyParser.json());
 app.use(express.static('public'));
-app.listen(process.env.PORT || 8080);
+
+const {PORT, DATABASE_URL} = require('./config');
+const CarsList = require('./models');
+
+app.listen(PORT);
 
 app.get('/', (req, res) => {
 	return res.status(200).sendFile('/public/index.html', {root: __dirname });
@@ -45,5 +52,29 @@ app.put('/purchaseList/:id', (req, res) => {
 app.delete('/purchaseList/:id', (req, res) => {
 	return res.status(201).end();
 });
+
+let server;
+
+function runServer(databaseUrl=DATABASE_URL, port=PORT) {
+  return new Promise((resolve, reject) => {
+    mongoose.connect(databaseUrl, err => {
+      if(err) {
+        return reject(err);
+      } 
+        server = app.listen(port, () => {
+                console.log(`Your app is listening on port ${port}`);
+                resolve();
+        })
+        .on('error', err => {
+          mongoose.disconnect();
+          reject(err);
+        });
+      })
+  });
+}
+
+if (require.main === module) {
+  runServer().catch(err => console.error(err));
+};
 
 module.exports = {app};
