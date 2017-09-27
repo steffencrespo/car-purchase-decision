@@ -147,6 +147,7 @@ function handleAddNewCarButton() {
 function submitCarDetailsForm() {
 	let car = {};
 	$('#js-car-details-form').on('click', '#js-car-details-submit', function(e) {
+		car.id = Math.floor(21047*(Math.random()));
 		car.make = $('#car-make').val();
 		car.model = $('#car-model').val();
 		car.year = $('#car-year').val();
@@ -156,6 +157,7 @@ function submitCarDetailsForm() {
 		car.sellerPhone = $('#car-seller-phone').val();
 		car.sellerEmail = $('#car-seller-email').val();
 		car.sellerWebsite = $('#car-seller-website').val();
+		saveNewCarDetails(car);
 	});
 }
 
@@ -169,8 +171,7 @@ function getAndRenderCarsList() {
 }
 
 function saveNewCarDetails(car) {
-	let uniqueId = Math.floor(21047*(Math.random()));
-	return MY_FUTURE_CARS.cars.add(car);
+	return MY_FUTURE_CARS.cars.push(car);
 }
 
 $(function() {
