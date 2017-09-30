@@ -74,7 +74,8 @@ function runServer(databaseUrl=DATABASE_URL, port=PORT) {
 }
 
 if (require.main === module) {
+  console.log('calling server.js as Main')
   runServer().catch(err => console.error(err));
 };
 
-module.exports = {app};
+module.exports = {app, runServer};
