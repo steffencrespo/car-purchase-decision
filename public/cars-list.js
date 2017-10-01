@@ -9,7 +9,7 @@ const MY_FUTURE_CARS = {
 			"trim":"48i",
 			"engine":"4.8 V8",
 			"dealerUrl":"",
-			"listedPrice":"34000",
+			"listedPrice":34000,
 			"comments":""
 		},
 		{
@@ -20,7 +20,7 @@ const MY_FUTURE_CARS = {
 			"trim":"i",
 			"engine":"3.0 i-6",
 			"dealerUrl":"",
-			"listedPrice":"50000",
+			"listedPrice":50000,
 			"comments":""
 		},
 		{
@@ -31,7 +31,7 @@ const MY_FUTURE_CARS = {
 			"trim":"Premium",
 			"engine":"3.9 V8",
 			"dealerUrl":"",
-			"listedPrice":"38000",
+			"listedPrice":38000,
 			"comments":""
 		},
 		{
@@ -42,7 +42,7 @@ const MY_FUTURE_CARS = {
 			"trim":"SS",
 			"engine":"6.2 V8",
 			"dealerUrl":"",
-			"listedPrice":"23700",
+			"listedPrice":23700,
 			"comments":""
 		},
 		{
@@ -53,7 +53,7 @@ const MY_FUTURE_CARS = {
 			"trim":"Stingray",
 			"engine":"6.2 V8",
 			"dealerUrl":"",
-			"listedPrice":"43700",
+			"listedPrice":43700,
 			"comments":""
 		},
 		{
@@ -64,9 +64,9 @@ const MY_FUTURE_CARS = {
 			"trim":"Hardtop Sport",
 			"engine":"5.7 V8",
 			"dealerUrl":"",
-			"listedPrice":"10400",
+			"listedPrice":10400,
 			"comments":""
-		},
+		}
 	]
 }
 

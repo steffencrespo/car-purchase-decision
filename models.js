@@ -7,12 +7,13 @@ const carsListSchema = mongoose.Schema({
       id: String,
       make: String,
       model: String,
+      year: String,
       trim: String,
       engine: String,
       dealerUrl: String,
       listedPrice: Number,
       sellerName: String,
-      sellerWebsite: String,
+      comments: String,
     }
   ]
 });
