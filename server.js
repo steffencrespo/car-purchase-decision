@@ -11,8 +11,6 @@ app.use(express.static('public'));
 const {PORT, DATABASE_URL} = require('./config');
 const CarsList = require('./models');
 
-app.listen(PORT);
-
 app.get('/', (req, res) => {
 	return res.status(200).sendFile('/public/index.html', {root: __dirname });
 });
@@ -56,6 +54,7 @@ app.delete('/purchaseList/:id', (req, res) => {
 let server;
 
 function runServer(databaseUrl=DATABASE_URL, port=PORT) {
+  console.log(`Attempting to connect to port ${port}`);
   return new Promise((resolve, reject) => {
     mongoose.connect(databaseUrl, err => {
       if(err) {
@@ -69,7 +68,7 @@ function runServer(databaseUrl=DATABASE_URL, port=PORT) {
           mongoose.disconnect();
           reject(err);
         });
-      })
+      });
   });
 }
 
