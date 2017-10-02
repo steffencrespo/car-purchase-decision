@@ -9,7 +9,7 @@ app.use(bodyParser.json());
 app.use(express.static('public'));
 
 const {PORT, DATABASE_URL} = require('./config');
-const CarsList = require('./models');
+const {CarsList} = require('./models');
 
 app.get('/', (req, res) => {
 	return res.status(200).sendFile('/public/index.html', {root: __dirname });
@@ -40,7 +40,22 @@ app.post('/purchaseList', (req, res) => {
 });
 
 app.get('/purchaseList', (req, res) => {
-	return res.status(200).sendFile('/public/purchase.html', {root: __dirname });
+  console.log(CarsList.find())
+  CarsList
+    .find()
+    .limit(10)
+    .then(carsLists => {
+      res.json({
+        carsLists: carsLists.map(
+          (carsList) => carsList.apiRepr())
+      });
+    })
+    .catch(
+      err => {
+        console.error(err);
+        res.status(500).json({message: 'Internal server error'});
+      });
+	// return res.status(200).sendFile('/public/purchase.html', {root: __dirname });
 });
 
 app.put('/purchaseList/:id', (req, res) => {

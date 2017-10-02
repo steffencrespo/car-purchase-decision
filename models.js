@@ -18,6 +18,14 @@ const carsListSchema = mongoose.Schema({
   ]
 });
 
+carsListSchema.methods.apiRepr = function() {
+  return {
+    id: this._id,
+    listName: this.listName,
+    cars: this.cars
+  };
+}
+
 const CarsList = mongoose.model('CarsList', carsListSchema);
 
 module.exports = {CarsList};
