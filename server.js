@@ -36,11 +36,31 @@ app.get('/carDetails', (req, res) => {
 })
 
 app.post('/purchaseList', (req, res) => {
-	return res.status(200).sendFile('/public/purchase.html', {root: __dirname });
+	// return res.status(200).sendFile('/public/purchase.html', {root: __dirname });
+  CarsList.create({
+    listName: 'carslistname',
+    cars: [    {
+      id: 'only',
+      make: 'only',
+      model: 'only',
+      year: 'only',
+      trim: 'only',
+      engine: 'only',
+      dealerUrl: 'only',
+      listedPrice: 1200,
+      sellerName: 'only',
+      comments: 'only'
+    }]
+  })
+  .then(
+    carsList => res.status(201).json(carsList.apiRepr()))
+  .catch(err => {
+    console.error(err);
+    res.status(500).json({message: 'Internal server error'});
+  });
 });
 
 app.get('/purchaseList', (req, res) => {
-  console.log(CarsList.find())
   CarsList
     .find()
     .limit(10)

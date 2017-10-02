@@ -74,12 +74,20 @@ describe('Car Details Calls', function() {
 describe('Purchase List Calls', function(){
 
 	it('should return 200 and html file on a GET request to purchaseList method', function(){
+		// return chai.request(app)
+		// get('/purchaseList')
+		// then(function(res) {
+		// 	res.should.have.status(200);
+		// 	res.should.have.header('content-type', 'text/html; charset=UTF-8');
+		// });
+		let res;
 		return chai.request(app)
-		get('/purchaseList')
-		then(function(res) {
-			res.should.have.status(200);
-			res.should.have.header('content-type', 'text/html; charset=UTF-8');
-		});
+			.get('/purchaseList')
+			.then(function(_res) {
+				res = _res;
+				res.should.have.status(200);
+			})
+
 	});
 
 	it('should return 200 and html file on a POST request to purchaseList method', function(){
