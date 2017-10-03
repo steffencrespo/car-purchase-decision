@@ -1,5 +1,4 @@
 const faker = require('faker');
-const monogose = require('monogose');
 const chai = require('chai');
 const chaiHttp = require('chai-http');
 const {app} = require('../server');
