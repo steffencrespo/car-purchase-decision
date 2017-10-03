@@ -60,7 +60,7 @@ app.post('/purchaseList', (req, res) => {
   });
 });
 
-app.get('/purchaseList', (req, res) => {
+app.get('/api/purchaseList', (req, res) => {
   CarsList
     .find()
     .limit(10)
@@ -75,7 +75,10 @@ app.get('/purchaseList', (req, res) => {
         console.error(err);
         res.status(500).json({message: 'Internal server error'});
       });
-	// return res.status(200).sendFile('/public/purchase.html', {root: __dirname });
+});
+
+app.get('/purchaseList', (req, res) => {
+  return res.status(200).sendFile('/public/purchase.html', {root: __dirname });
 });
 
 app.put('/purchaseList/:id', (req, res) => {
