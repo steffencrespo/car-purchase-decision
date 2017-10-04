@@ -11,29 +11,13 @@ app.use(express.static('public'));
 const {PORT, DATABASE_URL} = require('./config');
 const {CarsList} = require('./models');
 
-app.get('/', (req, res) => {
-	return res.status(200).sendFile('/public/index.html', {root: __dirname });
-});
-
-app.get('/login', (req, res) => {
-	return res.status(200).sendFile('/public/login.html', {root: __dirname});
-});
-
 app.post('/login', (req, res) => {
 	return res.status(200).json(req.body);
-});
-
-app.get('/signup', (req, res) => {
-	return res.status(200).sendFile('/public/signup.html', {root: __dirname});
 });
 
 app.post('/signup', (req, res) => {
 	return res.status(201).end();
 });
-
-app.get('/carDetails', (req, res) => {
-  return res.status(200).sendFile('/public/car-details.html', {root: __dirname});
-})
 
 app.post('/purchaseList', (req, res) => {
 	// return res.status(200).sendFile('/public/purchase.html', {root: __dirname });
@@ -60,7 +44,7 @@ app.post('/purchaseList', (req, res) => {
   });
 });
 
-app.get('/api/purchaseList', (req, res) => {
+app.get('/purchaseList', (req, res) => {
   CarsList
     .find()
     .limit(10)
@@ -81,8 +65,21 @@ app.get('/purchaseList', (req, res) => {
   return res.status(200).sendFile('/public/purchase.html', {root: __dirname });
 });
 
-app.put('/purchaseList/:id', (req, res) => {
-	return res.status(200).sendFile('/public/purchase.html', {root: __dirname});
+app.put('/api/purchaseList/car', (req, res) => {
+	CarsList
+    .findById("59074c7c057aaffaafb0da64")
+    .then(
+      carsList => {
+        res.json({
+          carsList: carsList.cars.map(car => car.model)
+        });
+        // carsList.cars.map(car => console.log(car))
+      })
+    .catch(
+      err => {
+        console.error(err);
+        res.status(500).json({message: 'Internal server error'});
+      })
 });
 
 app.delete('/purchaseList/:id', (req, res) => {

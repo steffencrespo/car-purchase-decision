@@ -1,7 +1,7 @@
 // will take care of calling the service and passing the returned data into the callback
 function getCarsListForUser(callbackFn) {
 	// setTimeout(function() { callbackFn(MY_FUTURE_CARS)}, 100);
-	fetch('/api/purchaseList')
+	fetch('/purchaseList')
 		.then(res => res.json())
 		.then(callbackFn);
 }
@@ -74,7 +74,7 @@ function handleLogoutLink() {
 
 function handleAddNewCarButton() {
 	$('#js-add-new-car').on('click', function() {
-		window.location.href = '/carDetails';
+		window.location.href = '/car-details.html';
 	});
 }
 
@@ -97,7 +97,7 @@ function submitCarDetailsForm() {
 
 function authenticateUser() {
 	// need to verify the authentication and then redirect to the correct page
-	window.location.href = '/purchaseList';
+	window.location.href = '/purchase.html';
 }
 
 function getAndRenderCarsList() {
