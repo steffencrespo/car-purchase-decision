@@ -89,7 +89,8 @@ function submitCarDetailsForm() {
 		car.sellerName = $('#car-seller-name').val();
 		car.sellerPhone = $('#car-seller-phone').val();
 		car.sellerEmail = $('#car-seller-email').val();
-		car.sellerWebsite = $('#car-seller-website').val();
+		car.dealerUrl = $('#car-seller-website').val();
+		car.comments = '';
 		saveNewCarDetails(car);
 	});
 }
@@ -104,7 +105,26 @@ function getAndRenderCarsList() {
 }
 
 function saveNewCarDetails(car) {
-	return MY_FUTURE_CARS.cars.push(car);
+	// $.ajax({
+	// 	url: 'http://localhost:8080/purchaseList',
+	// 	async: false,
+	// 	type: 'POST',
+	// 	data: {
+	// 		userId: '1',
+	//     make: car.make,
+	//     model: car.model,
+	//     year: car.year,
+	//     trim: car.trim,
+	//     engine: car.engine,
+	//     dealerUrl: car.dealerUrl,
+	//     listedPrice: car.listedPrice,
+	//     sellerName: car.sellerName,
+	//     comments: 'none'
+	// 	},
+	// 	success: function(data) {
+	// 		alert('success');
+	// 	}
+	// });
 }
 
 $(function() {
