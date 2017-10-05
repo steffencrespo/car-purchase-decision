@@ -20,24 +20,20 @@ app.post('/signup', (req, res) => {
 });
 
 app.post('/purchaseList', (req, res) => {
-	// return res.status(200).sendFile('/public/purchase.html', {root: __dirname });
-  CarsList.create({
-    listName: 'carslistname',
-    cars: [    {
-      id: 'only',
-      make: 'only',
-      model: 'only',
-      year: 'only',
-      trim: 'only',
-      engine: 'only',
-      dealerUrl: 'only',
-      listedPrice: 1200,
-      sellerName: 'only',
-      comments: 'only'
-    }]
+  Car.create({
+    userId: "1",
+    make: req.body.make,
+    model: req.body.model,
+    year: req.body.year,
+    trim: req.body.trim,
+    engine: req.body.engine,
+    dealerUrl: req.body.dealerUrl,
+    listedPrice: req.body.listedPrice,
+    sellerName: req.body.sellerName,
+    comments: req.body.comments
   })
   .then(
-    carsList => res.status(201).json(carsList.apiRepr()))
+    car => res.status(200).json(car.apiRepr()))
   .catch(err => {
     console.error(err);
     res.status(500).json({message: 'Internal server error'});
