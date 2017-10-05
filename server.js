@@ -62,10 +62,6 @@ app.get('/purchaseList', (req, res) => {
     );
 });
 
-app.get('/purchaseList', (req, res) => {
-  return res.status(200).sendFile('/public/purchase.html', {root: __dirname });
-});
-
 app.put('/api/purchaseList/car', (req, res) => {
 	CarsList
     .findById("59074c7c057aaffaafb0da64")
