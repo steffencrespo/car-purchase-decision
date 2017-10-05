@@ -77,7 +77,10 @@ app.put('/api/purchaseList/car', (req, res) => {
 });
 
 app.delete('/purchaseList/:id', (req, res) => {
-	return res.status(201).end();
+	Car
+    .findByIdAndRemove(req.params.id)
+    .then(car => res.status(204).end())
+    .catch(err => res.status(500).json({message: 'Internal server error'}));
 });
 
 let server;
