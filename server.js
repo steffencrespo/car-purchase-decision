@@ -9,7 +9,7 @@ app.use(bodyParser.json());
 app.use(express.static('public'));
 
 const {PORT, DATABASE_URL} = require('./config');
-const {CarsList} = require('./models');
+const {CarsList, Car} = require('./models');
 
 app.post('/login', (req, res) => {
 	return res.status(200).json(req.body);
@@ -42,6 +42,24 @@ app.post('/purchaseList', (req, res) => {
     console.error(err);
     res.status(500).json({message: 'Internal server error'});
   });
+});
+
+app.get('/carsList', (req, res) => {
+  Car
+    .find()
+    .limit(10)
+    .then(cars => {
+      res.json({
+        cars: cars.map(
+          (car) => car.apiRepr())
+      });
+    })
+    .catch(
+      err => {
+        console.error(err);
+        res.status(500).json({message: 'Internal server error'});
+      }
+    );
 });
 
 app.get('/purchaseList', (req, res) => {
