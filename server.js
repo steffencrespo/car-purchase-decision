@@ -20,6 +20,16 @@ app.post('/signup', (req, res) => {
 });
 
 app.post('/purchaseList', (req, res) => {
+  const requiredFields = ['make', 'model', 'year', 'listedPrice', 'sellerName'];
+  for (let i=0; i<requiredFields.length; i++) {
+    const field = requiredFields[i];
+    if(!(field in req.body)) {
+      const message = `Missing \`${field}\` in request body`;
+      console.error(message);
+      return res.status(400).send(message);
+    }
+  }
+
   console.log(req)
   // Car.create({
   //   userId: "1",
