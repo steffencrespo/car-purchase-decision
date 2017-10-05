@@ -9,13 +9,12 @@ function getCarsListForUser(callbackFn) {
 // takes a list of cars as parameter, which will be returned from a service
 // this function is passed as callback to the getCarListForUser method so it can get the list of cars as param
 function renderListContentsView(list) {
-	list.carsLists.map(e => {
-		console.log("1.", e);
-		e.cars.map(car => {
+	console.log(list.cars);
+	list.cars.map(car => {
 			console.log("2.", car);
 			$('#js-cars-list').append(renderSingleCarObject(car));
-		})
-	});
+		}
+	);
 }
 
 function renderSingleCarObject(car) {

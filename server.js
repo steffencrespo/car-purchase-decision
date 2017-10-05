@@ -44,7 +44,7 @@ app.post('/purchaseList', (req, res) => {
   });
 });
 
-app.get('/carsList', (req, res) => {
+app.get('/purchaseList', (req, res) => {
   Car
     .find()
     .limit(10)
@@ -60,23 +60,6 @@ app.get('/carsList', (req, res) => {
         res.status(500).json({message: 'Internal server error'});
       }
     );
-});
-
-app.get('/purchaseList', (req, res) => {
-  CarsList
-    .find()
-    .limit(10)
-    .then(carsLists => {
-      res.json({
-        carsLists: carsLists.map(
-          (carsList) => carsList.apiRepr())
-      });
-    })
-    .catch(
-      err => {
-        console.error(err);
-        res.status(500).json({message: 'Internal server error'});
-      });
 });
 
 app.get('/purchaseList', (req, res) => {
