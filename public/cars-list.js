@@ -28,7 +28,7 @@ function renderSingleCarObject(car) {
 	      <p>Asking price $${car.listedPrice}</p>
 	      <p><a href="#" class="btn btn-primary" role="button">Details</a> 
 	      	<a href="#" class="btn btn-default" role="button">Make an offer</a>
-	      	<a href="#" class="btn btn-default" role="button">Remove</a>
+	      	<a href="#" id=${car.id} class="car-remove btn btn-default" role="button">Remove</a>
 	      </p>
 	    </div>
 	  </div>
@@ -43,6 +43,7 @@ function loadAllLinkHandlers() {
 	handleLoginSubmit();
 	handleLogoutLink();
 	handleAddNewCarButton();
+	handleRemoveCarButton();
 	submitCarDetailsForm();
 }
 
@@ -74,6 +75,13 @@ function handleLogoutLink() {
 function handleAddNewCarButton() {
 	$('#js-add-new-car').on('click', function() {
 		window.location.href = '/car-details.html';
+	});
+}
+
+function handleRemoveCarButton() {
+	$('#js-cars-list').on('click', '.car-remove', function(e) {
+		e.preventDefault();
+		removeCar(e.target.id);
 	});
 }
 
@@ -116,6 +124,18 @@ function saveNewCarDetails(car) {
 		data: JSON.stringify(car),
 		success: function(data) {
 			alert('success');
+			window.location.href = '/purchase.html';
+		}
+	});
+}
+
+function removeCar(carId) {
+	$.ajax({
+		url: `http://localhost:8080/purchaseList/${carId}`,
+		async: false,
+		type: 'DELETE',
+		success: function(data) {
+			alert('successfully removed');
 			window.location.href = '/purchase.html';
 		}
 	});
