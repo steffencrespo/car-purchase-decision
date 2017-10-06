@@ -20,7 +20,6 @@ app.post('/signup', (req, res) => {
 });
 
 app.post('/purchaseList', (req, res) => {
-  console.log(req.body);
   const requiredFields = ['make', 'model', 'year', 'listedPrice', 'sellerName'];
   for (let i=0; i<requiredFields.length; i++) {
     const field = requiredFields[i];
@@ -31,24 +30,24 @@ app.post('/purchaseList', (req, res) => {
     }
   }
 
-  // Car.create({
-  //   userId: "1",
-  //   make: req.body.make,
-  //   model: req.body.model,
-  //   year: req.body.year,
-  //   trim: req.body.trim,
-  //   engine: req.body.engine,
-  //   dealerUrl: req.body.dealerUrl,
-  //   listedPrice: req.body.listedPrice,
-  //   sellerName: req.body.sellerName,
-  //   comments: req.body.comments
-  // })
-  // .then(
-  //   car => res.status(200).json(car.apiRepr()))
-  // .catch(err => {
-  //   console.error(err);
-  //   res.status(500).json({message: 'Internal server error'});
-  // });
+  Car.create({
+    userId: "1",
+    make: req.body.make,
+    model: req.body.model,
+    year: req.body.year,
+    trim: req.body.trim,
+    engine: req.body.engine,
+    dealerUrl: req.body.dealerUrl,
+    listedPrice: req.body.listedPrice,
+    sellerName: req.body.sellerName,
+    comments: req.body.comments
+  })
+  .then(
+    car => res.status(200).json(car.apiRepr()))
+  .catch(err => {
+    console.error(err);
+    res.status(500).json({message: 'Internal server error'});
+  });
 });
 
 app.get('/purchaseList', (req, res) => {

@@ -85,6 +85,7 @@ function submitCarDetailsForm() {
 		car.make = $('#car-make').val();
 		car.model = $('#car-model').val();
 		car.year = $('#car-year').val();
+		car.listedPrice = $('#car-price').val();
 		car.trim = $('#car-trim').val();
 		car.engine = $('#car-engine').val();
 		car.sellerName = $('#car-seller-name').val();
@@ -92,7 +93,6 @@ function submitCarDetailsForm() {
 		car.sellerEmail = $('#car-seller-email').val();
 		car.dealerUrl = $('#car-seller-website').val();
 		car.comments = '';
-		console.log(car.make);
 		saveNewCarDetails(car);
 	});
 }
@@ -111,11 +111,12 @@ function saveNewCarDetails(car) {
 		url: 'http://localhost:8080/purchaseList',
 		async: false,
 		type: 'POST',
-		content: 'application/json',
+		contentType: 'application/json',
 		dataType: 'json',
 		data: JSON.stringify(car),
 		success: function(data) {
 			alert('success');
+			window.location.href = '/purchase.html';
 		}
 	});
 }
