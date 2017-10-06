@@ -78,9 +78,10 @@ function handleAddNewCarButton() {
 }
 
 function submitCarDetailsForm() {
-	let car = {};
-	$('#js-car-details-form').on('click', '#js-car-details-submit', function(e) {
-		car.id = Math.floor(21047*(Math.random()));
+	console.log('submitCarDetais loaded');
+	$('#js-car-details-form').submit(function(e) {
+		e.preventDefault();
+		let car = {};
 		car.make = $('#car-make').val();
 		car.model = $('#car-model').val();
 		car.year = $('#car-year').val();
@@ -91,6 +92,7 @@ function submitCarDetailsForm() {
 		car.sellerEmail = $('#car-seller-email').val();
 		car.dealerUrl = $('#car-seller-website').val();
 		car.comments = '';
+		console.log(car.make);
 		saveNewCarDetails(car);
 	});
 }
@@ -105,29 +107,21 @@ function getAndRenderCarsList() {
 }
 
 function saveNewCarDetails(car) {
-	// $.ajax({
-	// 	url: 'http://localhost:8080/purchaseList',
-	// 	async: false,
-	// 	type: 'POST',
-	// 	data: {
-	// 		userId: '1',
-	//     make: car.make,
-	//     model: car.model,
-	//     year: car.year,
-	//     trim: car.trim,
-	//     engine: car.engine,
-	//     dealerUrl: car.dealerUrl,
-	//     listedPrice: car.listedPrice,
-	//     sellerName: car.sellerName,
-	//     comments: 'none'
-	// 	},
-	// 	success: function(data) {
-	// 		alert('success');
-	// 	}
-	// });
+	$.ajax({
+		url: 'http://localhost:8080/purchaseList',
+		async: false,
+		type: 'POST',
+		content: 'application/json',
+		dataType: 'json',
+		data: JSON.stringify(car),
+		success: function(data) {
+			alert('success');
+		}
+	});
 }
 
 $(function() {
+	console.log('loading handlers');
 	getAndRenderCarsList();
 	loadAllLinkHandlers();
 });

@@ -20,6 +20,7 @@ app.post('/signup', (req, res) => {
 });
 
 app.post('/purchaseList', (req, res) => {
+  console.log(req.body);
   const requiredFields = ['make', 'model', 'year', 'listedPrice', 'sellerName'];
   for (let i=0; i<requiredFields.length; i++) {
     const field = requiredFields[i];
@@ -30,7 +31,6 @@ app.post('/purchaseList', (req, res) => {
     }
   }
 
-  console.log(req)
   // Car.create({
   //   userId: "1",
   //   make: req.body.make,
