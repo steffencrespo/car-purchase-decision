@@ -27,7 +27,7 @@ function renderSingleCarObject(car) {
 	      <h3>${car.year} ${car.make} ${car.model}</h3>
 	      <p>Asking price $${car.listedPrice}</p>
 	      <p><a href="#" class="btn btn-primary" role="button">Details</a> 
-	      	<a href="#" class="btn btn-default" role="button">Make an offer</a>
+	      	<a href="#" id="${car.year} ${car.make} ${car.model}" class="car-offer btn btn-default" role="button">Make an offer</a>
 	      	<a href="#" id=${car.id} class="car-remove btn btn-default" role="button">Remove</a>
 	      </p>
 	    </div>
@@ -44,6 +44,7 @@ function loadAllLinkHandlers() {
 	handleLogoutLink();
 	handleAddNewCarButton();
 	handleRemoveCarButton();
+	handleMakeAnOfferButton();
 	submitCarDetailsForm();
 }
 
@@ -82,6 +83,13 @@ function handleRemoveCarButton() {
 	$('#js-cars-list').on('click', '.car-remove', function(e) {
 		e.preventDefault();
 		removeCar(e.target.id);
+	});
+}
+
+function handleMakeAnOfferButton() {
+	$('#js-cars-list').on('click', '.car-offer', function(e) {
+		e.preventDefault();
+		alert(`I am interested in your ${e.target.id}. What is the best price you would consider in order to sell it now?`);
 	});
 }
 
