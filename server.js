@@ -1,3 +1,4 @@
+require('dotenv').config();
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 const express = require('express');
@@ -21,6 +22,9 @@ const {CarsList, Car} = require('./models');
 app.use(passport.initialize());
 passport.use(basicStrategy);
 passport.use(jwtStrategy);
+
+// app.use('/api/users/', usersRouter);
+// app.use('/api/auth/', authRouter);
 
 app.post('/login', (req, res) => {
 	return res.status(200).json(req.body);
