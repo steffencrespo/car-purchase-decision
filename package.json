@@ -10,6 +10,7 @@
   "author": "leonardo steffen",
   "license": "ISC",
   "dependencies": {
+    "bcryptjs": "^2.4.3",
     "body-parser": "^1.18.2",
     "express": "^4.15.4",
     "jsonwebtoken": "^8.0.1",
