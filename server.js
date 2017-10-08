@@ -4,6 +4,9 @@ const express = require('express');
 const morgan = require('morgan');
 const passport = require('passport');
 
+const {router: usersRouter} = require('./users');
+const {router: authRouter, basicStrategy, jwtStrategy} = require('./auth');
+
 mongoose.Promise = global.Promise;
 
 const app = express();
@@ -16,8 +19,8 @@ const {CarsList, Car} = require('./models');
 
 // Authentication specifics
 app.use(passport.initialize());
-// passport.use(basicStrategy);
-// passport.use(jwtStrategy);
+passport.use(basicStrategy);
+passport.use(jwtStrategy);
 
 app.post('/login', (req, res) => {
 	return res.status(200).json(req.body);
