@@ -1,11 +1,14 @@
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 const express = require('express');
+const morgan = require('morgan');
+const passport = require('passport');
 
 mongoose.Promise = global.Promise;
 
 const app = express();
 app.use(bodyParser.json());
+app.use(morgan('common'));
 app.use(express.static('public'));
 
 const {PORT, DATABASE_URL} = require('./config');
