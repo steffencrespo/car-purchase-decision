@@ -23,8 +23,8 @@ app.use(passport.initialize());
 passport.use(basicStrategy);
 passport.use(jwtStrategy);
 
-// app.use('/api/users/', usersRouter);
-// app.use('/api/auth/', authRouter);
+app.use('/api/users/', usersRouter);
+app.use('/api/auth/', authRouter);
 
 app.post('/login', (req, res) => {
 	return res.status(200).json(req.body);
@@ -105,6 +105,10 @@ app.delete('/purchaseList/:id', (req, res) => {
     .findByIdAndRemove(req.params.id)
     .then(car => res.status(204).end())
     .catch(err => res.status(500).json({message: 'Internal server error'}));
+});
+
+app.use('*', (req, res) => {
+    return res.status(404).json({message: 'Not Found'});
 });
 
 let server;
