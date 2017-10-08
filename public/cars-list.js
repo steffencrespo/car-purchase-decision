@@ -2,7 +2,13 @@
 function getCarsListForUser(callbackFn) {
 	// setTimeout(function() { callbackFn(MY_FUTURE_CARS)}, 100);
 	fetch('/purchaseList')
-		.then(res => res.json())
+		.then(res => {
+			if(res.status === 401) {
+				alert('not authorized');
+			} else {
+				return res.json();
+			}
+		})
 		.then(callbackFn);
 }
 
