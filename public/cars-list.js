@@ -8,7 +8,7 @@ function getCarsListForUser(callbackFn) {
 	const options = {
 		headers: {'contentType': 'application/json', 'Authorization': 'Bearer ' + localStorage.token}
 	};
-	fetch('/purchaseList', options)
+	fetch(`/purchaseList/${localStorage.userId}`, options)
 		.then(res => {
 			if(res.status === 401) {
 				alert('not authorized');
@@ -151,6 +151,7 @@ function authenticateUser(user) {
 			// localStorage.token = res.authToken.responseJSON.authToken;
 		}
 	}).responseJSON.authToken;
+	localStorage.userId = '1';
 	
 	window.location.href = '/purchase.html';
 }
@@ -170,7 +171,7 @@ function registerNewUser(user) {
 }
 
 function getAndRenderCarsList() {
-	if (localStorage.token) {
+	if (localStorage.token && localStorage.userId) {
 			getCarsListForUser(renderListContentsView);
 	}
 }

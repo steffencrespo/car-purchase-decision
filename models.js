@@ -28,6 +28,10 @@ carSchema.methods.apiRepr = function() {
     }
 }
 
+carSchema.statics.findByUserId = function(id) {
+return this.find( {userId: id} );
+};
+
 const carsListSchema = mongoose.Schema({
   listName: {type: String, required: true},
   cars: [ 

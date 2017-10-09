@@ -68,9 +68,9 @@ app.post('/purchaseList', passport.authenticate('jwt', {session: false}), (req, 
   });
 });
 
-app.get('/purchaseList', passport.authenticate('jwt', {session: false}), (req, res) => {
+app.get('/purchaseList/:userId', passport.authenticate('jwt', {session: false}), (req, res) => {
   Car
-    .find()
+    .findByUserId(req.params.userId)
     .limit(10)
     .then(cars => {
       res.json({
