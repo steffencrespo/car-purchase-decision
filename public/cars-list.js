@@ -152,9 +152,22 @@ function authenticateUser(user) {
 			// localStorage.token = res.authToken.responseJSON.authToken;
 		}
 	}).responseJSON.authToken;
-	localStorage.userId = '1';
+	setUserIdOnLocalStorage(user);
 	
 	window.location.href = '/purchase.html';
+}
+
+function setUserIdOnLocalStorage(user) {
+	console.log(user.username);
+		localStorage.userId = $.ajax({
+		url: REGISTER+'/userId/'+user.username,
+		headers: {'contentType': 'application/json', 'Authorization': 'Bearer ' + localStorage.token},
+		type: 'GET',
+		async: false,
+		success: function(res) {
+			// localStorage.token = res.authToken.responseJSON.authToken;
+		}
+	}).responseJSON.id;
 }
 
 function registerNewUser(user) {
