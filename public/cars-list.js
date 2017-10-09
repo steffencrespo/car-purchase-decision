@@ -1,6 +1,5 @@
 // will take care of calling the service and passing the returned data into the callback
 function getCarsListForUser(callbackFn) {
-	// setTimeout(function() { callbackFn(MY_FUTURE_CARS)}, 100);
 	const options = {
 		headers: {'contentType': 'application/json', 'Authorization': 'Bearer ' + localStorage.token}
 	};
@@ -82,7 +81,7 @@ function handleLoginSubmit() {
 }
 
 function handleLogoutLink() {
-	$('.js-logout-link').on('click', function() {
+	$('#js-logout-link').on('click', function() {
 		localStorage.clear();
 		alert("You are no longer logged in.");
 	});
@@ -145,7 +144,9 @@ function authenticateUser(user) {
 }
 
 function getAndRenderCarsList() {
-	getCarsListForUser(renderListContentsView);
+	if (localStorage.token) {
+			getCarsListForUser(renderListContentsView);
+	}
 }
 
 function saveNewCarDetails(car) {
