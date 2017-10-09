@@ -1,3 +1,8 @@
+const BASE_URL = 'http://localhost:8080';
+const LOGIN = BASE_URL+'/api/auth/login';
+const REGISTER = BASE_URL+'/api/users/';
+const SAVE_CAR = BASE_URL+'/purchaseList';
+
 // will take care of calling the service and passing the returned data into the callback
 function getCarsListForUser(callbackFn) {
 	const options = {
@@ -137,7 +142,7 @@ function submitCarDetailsForm() {
 function authenticateUser(user) {
 	// need to verify the authentication and then redirect to the correct page
 	localStorage.token = $.ajax({
-		url: 'http://localhost:8080/api/auth/login',
+		url: LOGIN,
 		type: 'POST',
 		async: false,
 		username: user.username,
@@ -152,7 +157,7 @@ function authenticateUser(user) {
 
 function registerNewUser(user) {
 	$.ajax({
-		url: 'http://localhost:8080/api/users/',
+		url: REGISTER,
 		type: 'POST',
 		async: false,
 		contentType: 'application/json',
@@ -172,7 +177,7 @@ function getAndRenderCarsList() {
 
 function saveNewCarDetails(car) {
 	$.ajax({
-		url: 'http://localhost:8080/purchaseList',
+		url: SAVE_CAR,
 		headers: {'contentType': 'application/json', 'Authorization': 'Bearer ' + localStorage.token},
 		async: false,
 		type: 'POST',
@@ -188,7 +193,7 @@ function saveNewCarDetails(car) {
 
 function removeCar(carId) {
 	$.ajax({
-		url: `http://localhost:8080/purchaseList/${carId}`,
+		url: SAVE_CAR+`/${carId}`,
 		headers: {'contentType': 'application/json', 'Authorization': 'Bearer ' + localStorage.token},
 		async: false,
 		type: 'DELETE',
