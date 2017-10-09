@@ -41,7 +41,7 @@ app.post('/signup', (req, res) => {
 	return res.status(201).end();
 });
 
-app.post('/purchaseList', (req, res) => {
+app.post('/purchaseList', passport.authenticate('jwt', {session: false}), (req, res) => {
   const requiredFields = ['make', 'model', 'year', 'listedPrice', 'sellerName'];
   for (let i=0; i<requiredFields.length; i++) {
     const field = requiredFields[i];

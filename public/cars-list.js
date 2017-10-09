@@ -152,6 +152,7 @@ function getAndRenderCarsList() {
 function saveNewCarDetails(car) {
 	$.ajax({
 		url: 'http://localhost:8080/purchaseList',
+		headers: {'contentType': 'application/json', 'Authorization': 'Bearer ' + localStorage.token},
 		async: false,
 		type: 'POST',
 		contentType: 'application/json',
