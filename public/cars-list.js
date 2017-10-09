@@ -167,6 +167,7 @@ function saveNewCarDetails(car) {
 function removeCar(carId) {
 	$.ajax({
 		url: `http://localhost:8080/purchaseList/${carId}`,
+		headers: {'contentType': 'application/json', 'Authorization': 'Bearer ' + localStorage.token},
 		async: false,
 		type: 'DELETE',
 		success: function(data) {

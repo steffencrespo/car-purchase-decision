@@ -107,7 +107,7 @@ app.put('/api/purchaseList/car', (req, res) => {
       })
 });
 
-app.delete('/purchaseList/:id', (req, res) => {
+app.delete('/purchaseList/:id', passport.authenticate('jwt', {session: false}), (req, res) => {
 	Car
     .findByIdAndRemove(req.params.id)
     .then(car => res.status(204).end())

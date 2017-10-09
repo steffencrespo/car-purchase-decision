@@ -92,7 +92,6 @@ router.post('/', jsonParser, (req, res) => {
         .count()
         .then(count => {
             if (count > 0) {
-                // There is an existing user with the same username
                 return Promise.reject({
                     code: 422,
                     reason: 'ValidationError',
@@ -100,7 +99,6 @@ router.post('/', jsonParser, (req, res) => {
                     location: 'username'
                 });
             }
-            // If there is no existing user, hash the password
             return User.hashPassword(password);
         })
         .then(hash => {
@@ -115,8 +113,6 @@ router.post('/', jsonParser, (req, res) => {
             return res.status(201).json(user.apiRepr());
         })
         .catch(err => {
-            // Forward validation errors on to the client, otherwise give a 500
-            // error because something unexpected has happened
             if (err.reason === 'ValidationError') {
                 return res.status(err.code).json(err);
             }
@@ -124,10 +120,6 @@ router.post('/', jsonParser, (req, res) => {
         });
 });
 
-// Never expose all your users like below in a prod application
-// we're just doing this so we have a quick way to see
-// if we're creating users. keep in mind, you can also
-// verify this in the Mongo shell.
 router.get('/', (req, res) => {
     return User.find()
         .then(users => res.json(users.map(user => user.apiRepr())))
