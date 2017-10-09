@@ -37,10 +37,6 @@ app.use(express.static('public'));
 app.use('/api/users/', usersRouter);
 app.use('/api/auth/', authRouter);
 
-app.post('/signup', (req, res) => {
-	return res.status(201).end();
-});
-
 app.post('/purchaseList', passport.authenticate('jwt', {session: false}), (req, res) => {
   const requiredFields = ['make', 'model', 'year', 'listedPrice', 'sellerName'];
   for (let i=0; i<requiredFields.length; i++) {

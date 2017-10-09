@@ -64,8 +64,15 @@ function handleLearnMoreButton() {
 }
 
 function handleSignupSubmit() {
-	$('#js-submit-signup').on('click', function() {
-		alert('Goes to Signup')
+	$('#js-submit-signup').on('click', function(e) {
+		e.preventDefault();
+		let user = {
+			username: $('#username-signup').val(),
+			password: $('#password-signup').val(),
+			firstName: $('#first-name-signup').val(),
+			lastName: $('#last-name-signup').val()
+		}
+		registerNewUser(user);
 	});
 }
 
@@ -141,6 +148,20 @@ function authenticateUser(user) {
 	}).responseJSON.authToken;
 	
 	window.location.href = '/purchase.html';
+}
+
+function registerNewUser(user) {
+	$.ajax({
+		url: 'http://localhost:8080/api/users/',
+		type: 'POST',
+		async: false,
+		contentType: 'application/json',
+		dataType: 'json',
+		data: JSON.stringify(user),
+		success: function(res) {
+			alert("Welcome");
+		}
+	});
 }
 
 function getAndRenderCarsList() {
