@@ -68,8 +68,13 @@ function handleSignupSubmit() {
 }
 
 function handleLoginSubmit() {
-	$('#js-submit-login').on('click', function() {
-		authenticateUser();
+	$('#js-submit-login').on('click', function(e) {
+		e.preventDefault();
+		let user = {
+			username: $('#userName').val(),
+			password: $('#userPassword').val()
+		}
+		authenticateUser(user);
 	});
 }
 
@@ -119,8 +124,17 @@ function submitCarDetailsForm() {
 	});
 }
 
-function authenticateUser() {
+function authenticateUser(user) {
 	// need to verify the authentication and then redirect to the correct page
+	$.ajax({
+		url: 'http://localhost:8080/api/auth/login',
+		type: 'POST',
+		username: user.username,
+		password: user.password,
+		success: function(res) {
+			alert(res);
+		}
+	})
 	window.location.href = '/purchase.html';
 }
 
