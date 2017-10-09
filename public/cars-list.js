@@ -1,7 +1,10 @@
 // will take care of calling the service and passing the returned data into the callback
 function getCarsListForUser(callbackFn) {
 	// setTimeout(function() { callbackFn(MY_FUTURE_CARS)}, 100);
-	fetch('/purchaseList')
+	const options = {
+		headers: {'contentType': 'application/json', 'Authorization': 'Bearer ' + localStorage.token}
+	};
+	fetch('/purchaseList', options)
 		.then(res => {
 			if(res.status === 401) {
 				alert('not authorized');
@@ -80,7 +83,8 @@ function handleLoginSubmit() {
 
 function handleLogoutLink() {
 	$('.js-logout-link').on('click', function() {
-		alert('Goes to Logout')
+		localStorage.clear();
+		alert("You are no longer logged in.");
 	});
 }
 
@@ -126,17 +130,17 @@ function submitCarDetailsForm() {
 
 function authenticateUser(user) {
 	// need to verify the authentication and then redirect to the correct page
-	let authToken = $.ajax({
+	localStorage.token = $.ajax({
 		url: 'http://localhost:8080/api/auth/login',
 		type: 'POST',
+		async: false,
 		username: user.username,
 		password: user.password,
 		success: function(res) {
-			return res.responseJSON
+			// localStorage.token = res.authToken.responseJSON.authToken;
 		}
-	})
-	alert(JSON.stringify(authToken.responseJSON));
-	return authToken.responseJSON;
+	}).responseJSON.authToken;
+	
 	window.location.href = '/purchase.html';
 }
 
