@@ -124,6 +124,7 @@ function submitCarDetailsForm() {
 	$('#js-car-details-form').submit(function(e) {
 		e.preventDefault();
 		let car = {};
+		car.userId = localStorage.userId;
 		car.make = $('#car-make').val();
 		car.model = $('#car-model').val();
 		car.year = $('#car-year').val();

@@ -38,7 +38,7 @@ app.use('/api/users/', usersRouter);
 app.use('/api/auth/', authRouter);
 
 app.post('/purchaseList', passport.authenticate('jwt', {session: false}), (req, res) => {
-  const requiredFields = ['make', 'model', 'year', 'listedPrice', 'sellerName'];
+  const requiredFields = ['userId', 'make', 'model', 'year', 'listedPrice', 'sellerName'];
   for (let i=0; i<requiredFields.length; i++) {
     const field = requiredFields[i];
     if(!(field in req.body)) {
@@ -49,7 +49,7 @@ app.post('/purchaseList', passport.authenticate('jwt', {session: false}), (req, 
   }
 
   Car.create({
-    userId: "1",
+    userId: req.body.userId,
     make: req.body.make,
     model: req.body.model,
     year: req.body.year,
