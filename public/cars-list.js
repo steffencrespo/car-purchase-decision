@@ -126,15 +126,17 @@ function submitCarDetailsForm() {
 
 function authenticateUser(user) {
 	// need to verify the authentication and then redirect to the correct page
-	$.ajax({
+	let authToken = $.ajax({
 		url: 'http://localhost:8080/api/auth/login',
 		type: 'POST',
 		username: user.username,
 		password: user.password,
 		success: function(res) {
-			alert(res);
+			return res.responseJSON
 		}
 	})
+	alert(JSON.stringify(authToken.responseJSON));
+	return authToken.responseJSON;
 	window.location.href = '/purchase.html';
 }
 

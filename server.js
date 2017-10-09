@@ -37,10 +37,6 @@ app.use(express.static('public'));
 app.use('/api/users/', usersRouter);
 app.use('/api/auth/', authRouter);
 
-app.post('/login', (req, res) => {
-	return res.status(200).json(req.body);
-});
-
 app.post('/signup', (req, res) => {
 	return res.status(201).end();
 });
