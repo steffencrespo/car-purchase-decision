@@ -1,0 +1,2 @@
+{ "_id" : ObjectId("59da70425ebf2808bcfd374f"), "username" : "leo", "password" : "$2a$10$eHm6wwhUuBEt3Xn5Bqb2qeQXXbj783PXjtKSjOv4avo9nRCOgcpju", "lastName" : "steffen", "firstName" : "leonardo", "__v" : 0 }
+{ "_id" : ObjectId("59dbc7c79bef4f146c431b51"), "username" : "john", "password" : "$2a$10$96dmSOMAWaMqyQWxEjzyYuNDG2bK9B6HQFGoKfRt5NUCNo790c4Hu", "lastName" : "varvatos", "firstName" : "", "__v" : 0 }
