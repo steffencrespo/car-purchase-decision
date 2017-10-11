@@ -1,7 +1,6 @@
-const BASE_URL = 'http://localhost:8080';
-const LOGIN = BASE_URL+'/api/auth/login';
-const REGISTER = BASE_URL+'/api/users/';
-const SAVE_CAR = BASE_URL+'/purchaseList';
+const LOGIN = '/api/auth/login';
+const REGISTER = '/api/users/';
+const SAVE_CAR = '/purchaseList';
 
 // will take care of calling the service and passing the returned data into the callback
 function getCarsListForUser(callbackFn) {
