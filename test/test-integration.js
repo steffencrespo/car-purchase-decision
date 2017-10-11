@@ -17,7 +17,7 @@ function tearDownDb() {
 	return mongoose.connection.dropDatabase();
 }
 
-describe('Root', function() {
+xdescribe('Root', function() {
 
 	it('should return 200 on hitting the root url', function(){
 		return chai.request(app)
@@ -30,7 +30,7 @@ describe('Root', function() {
 
 });
 
-describe('User Authentication', function() {
+xdescribe('User Authentication', function() {
 	it('should return 200 and the login page on hitting /login', function() {
 		return chai.request(app)
 		.get('/login')
@@ -52,7 +52,7 @@ describe('User Authentication', function() {
 	});
 });
 
-describe('User Registration', function(){
+xdescribe('User Registration', function(){
 	it('should return 200 and the signup page on hitting /signup', function(){
 		return chai.request(app)
 		.get('/signup')
@@ -70,7 +70,7 @@ describe('User Registration', function(){
 	});
 });
 
-describe('Car Details Calls', function() {
+xdescribe('Car Details Calls', function() {
 	it('should return 200 and the car details page on a GET request to carDetails', function() {
 		return chai.request(app)
 		.get('/carDetails')
@@ -82,7 +82,7 @@ describe('Car Details Calls', function() {
 
 describe('Purchase List Calls', function(){
 
-	it('should return 200 and html file on a GET request to purchaseList method', function(){
+	xit('should return 200 and html file on a GET request to purchaseList method', function(){
 		// return chai.request(app)
 		// get('/purchaseList')
 		// then(function(res) {
