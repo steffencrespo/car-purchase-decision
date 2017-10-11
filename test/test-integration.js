@@ -1,11 +1,21 @@
 const faker = require('faker');
 const chai = require('chai');
 const chaiHttp = require('chai-http');
-const {app} = require('../server');
+const mongoose = require('mongoose');
 
 const should = chai.should();
 
+const {Car} = require('../models');
+const {User} = require('../users/models');
+const {app, runServer, closeServer} = require('../server');
+const {TEST_DATABASE_URL} = require('../config');
+
 chai.use(chaiHttp);
+
+function tearDownDb() {
+	console.warn('Deleting database');
+	return mongoose.connection.dropDatabase();
+}
 
 describe('Root', function() {
 

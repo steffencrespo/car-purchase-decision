@@ -135,6 +135,20 @@ function runServer(databaseUrl=DATABASE_URL, port=PORT) {
   });
 }
 
+function closeServer() {
+  return mongoose.disconnect().then(() => {
+    return new Promise((resolve, reject) => {
+      console.log('Closing server connection');
+      server.close((err) => {
+        if (err) {
+          return reject(err);
+        }
+        resolve();
+      });
+    });
+  });
+}
+
 if (require.main === module) {
   console.log('calling server.js as Main')
   runServer().catch(err => console.error(err));
