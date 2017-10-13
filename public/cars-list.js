@@ -204,8 +204,10 @@ function saveNewCarDetails(car) {
 		dataType: 'json',
 		data: JSON.stringify(car),
 		success: function(data) {
-			alert('success');
-			window.location.href = '/purchase.html';
+			$('.alert-success').toggle();
+			setTimeout(function() {
+			    window.location.href = '/purchase.html';
+			}, 500);
 		}
 	});
 }
