@@ -38,8 +38,7 @@ function renderSingleCarObject(car) {
 	      <p>Price Limit $${car.listedPrice}</p>
 	      <p><textarea rows="2" id="car-details-text" class="form-control input-sm chat-input" placeholder="notes" ></textarea></p>
 	      <p>
-	      	<!-- Button trigger modal -->
-	      	<button type="button" id="car-details-button ${car.year} ${car.make} ${car.model}" class="car-details btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+	      	<button type="button" id="car-details-button ${car.year} ${car.make} ${car.model}" class="car-details btn btn-primary">
 	      	  Show Details
 	      	</button>
 	      	<a href="#" id=${car.id} class="car-remove btn btn-default" role="button">Remove</a>
