@@ -39,7 +39,10 @@ function renderSingleCarObject(car) {
 	      <h3>${car.year} ${car.make} ${car.model}</h3>
 	      <p>Asking price $${car.listedPrice}</p>
 	      <p><a href="#" class="btn btn-primary" role="button">Details</a> 
-	      	<a href="#" id="${car.year} ${car.make} ${car.model}" class="car-offer btn btn-default" role="button">Make an offer</a>
+	      	<!-- Button trigger modal -->
+	      	<button type="button" id="${car.year} ${car.make} ${car.model}" class="car-offer btn btn-default" data-toggle="modal" data-target="#exampleModal">
+	      	  Make an offer
+	      	</button>
 	      	<a href="#" id=${car.id} class="car-remove btn btn-default" role="button">Remove</a>
 	      </p>
 	    </div>
@@ -114,7 +117,8 @@ function handleRemoveCarButton() {
 function handleMakeAnOfferButton() {
 	$('#js-cars-list').on('click', '.car-offer', function(e) {
 		e.preventDefault();
-		alert(`I am interested in your ${e.target.id}. What is the best price you would consider in order to sell it now?`);
+		$('.modal-body').text(`I am interested in your ${e.target.id}. What is the best price you would consider in order to sell it now?`);
+
 	});
 }
 
