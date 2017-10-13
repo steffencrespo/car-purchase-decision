@@ -32,17 +32,19 @@ function renderSingleCarObject(car) {
 	`
 	<div class="col-sm-6 col-md-4">
 	  <div class="thumbnail">
-	    <img src="./images/${car.make}.png" alt="...">
+	    <img class="expanded-block-element" src="./images/${car.make}.png" alt="car make image">
 	    <div class="caption">
 	      <h3>${car.year} ${car.make} ${car.model}</h3>
 	      <p>Price Limit $${car.listedPrice}</p>
-	      <p><textarea rows="2" id="car-details-text" class="form-control input-sm chat-input" placeholder="notes" ></textarea></p>
+	      <p class="expanded-block-element"><textarea rows="2" id="car-details-text" class="form-control input-sm chat-input" placeholder="notes" ></textarea></p>
 	      <p>
-	      	<button type="button" id="car-details-button ${car.year} ${car.make} ${car.model}" class="car-details btn btn-primary">
+	      	<button type="button" id="${car.year} ${car.make} ${car.model}" class="car-details-button car-details btn btn-primary">
 	      	  Show Details
 	      	</button>
 	      	<a href="#" id=${car.id} class="car-remove btn btn-default" role="button">Remove</a>
 	      </p>
+	      <p class="expanded-block-element" hidden="true">Trim: ${car.trim}</p>
+	      <p class="expanded-block-element" hidden="true">Engine: ${car.engine}</p>
 	    </div>
 	  </div>
 	</div>
@@ -115,8 +117,7 @@ function handleRemoveCarButton() {
 function handleCarDetailsButton() {
 	$('#js-cars-list').on('click', '.car-details-button', function(e) {
 		e.preventDefault();
-		$('.modal-body').text(`I am interested in your ${e.target.id}. What is the best price you would consider in order to sell it now?`);
-
+		$('.expanded-block-element').toggle(100);
 	});
 }
 
