@@ -208,6 +208,9 @@ function saveNewCarDetails(car) {
 			setTimeout(function() {
 			    window.location.href = '/purchase.html';
 			}, 500);
+		},
+		error: function(error) {
+			$('.alert-danger').append(error.statusText).toggle();
 		}
 	});
 }
@@ -219,8 +222,10 @@ function removeCar(carId) {
 		async: false,
 		type: 'DELETE',
 		success: function(data) {
-			alert('successfully removed');
-			window.location.href = '/purchase.html';
+			$('.alert-success').toggle();
+			setTimeout(function() {
+			    window.location.href = '/purchase.html';
+			}, 500);
 		}
 	});
 }
