@@ -71,7 +71,7 @@ function handleLearnMoreButton() {
 }
 
 function handleSignupSubmit() {
-	$('#js-submit-signup').on('click', function(e) {
+	$('#js-submit-signup').submit(function(e) {
 		e.preventDefault();
 		let user = {
 			username: $('#username-signup').val(),
