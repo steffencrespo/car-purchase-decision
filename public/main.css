@@ -31,3 +31,10 @@ h4 {
 .wrapper {
     text-align: center;
 }
+
+input[required]{
+    background-image: radial-gradient(#F00 15%, transparent 16%), radial-gradient(#F00 15%, transparent 16%);
+    background-size: 1em 1em;
+    background-position: right top;
+    background-repeat: no-repeat;
+}
