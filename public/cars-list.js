@@ -36,11 +36,11 @@ function renderSingleCarObject(car) {
 	    <div class="caption">
 	      <h3>${car.year} ${car.make} ${car.model}</h3>
 	      <p>Price Limit $${car.listedPrice}</p>
-	      <p><textarea rows="2" id="car-details" class="form-control input-sm chat-input" placeholder="notes" ></textarea></p>
-	      <p><a href="#" class="btn btn-primary" role="button">Details</a> 
+	      <p><textarea rows="2" id="car-details-text" class="form-control input-sm chat-input" placeholder="notes" ></textarea></p>
+	      <p>
 	      	<!-- Button trigger modal -->
-	      	<button type="button" id="${car.year} ${car.make} ${car.model}" class="car-offer btn btn-default" data-toggle="modal" data-target="#exampleModal">
-	      	  Make an offer
+	      	<button type="button" id="car-details-button ${car.year} ${car.make} ${car.model}" class="car-details btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+	      	  Show Details
 	      	</button>
 	      	<a href="#" id=${car.id} class="car-remove btn btn-default" role="button">Remove</a>
 	      </p>
@@ -58,7 +58,7 @@ function loadAllLinkHandlers() {
 	handleLogoutLink();
 	handleAddNewCarButton();
 	handleRemoveCarButton();
-	handleMakeAnOfferButton();
+	handleCarDetailsButton();
 	submitCarDetailsForm();
 }
 
@@ -113,8 +113,8 @@ function handleRemoveCarButton() {
 	});
 }
 
-function handleMakeAnOfferButton() {
-	$('#js-cars-list').on('click', '.car-offer', function(e) {
+function handleCarDetailsButton() {
+	$('#js-cars-list').on('click', '.car-details-button', function(e) {
 		e.preventDefault();
 		$('.modal-body').text(`I am interested in your ${e.target.id}. What is the best price you would consider in order to sell it now?`);
 
