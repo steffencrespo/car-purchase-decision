@@ -36,7 +36,7 @@ function renderSingleCarObject(car) {
 	    <div class="caption">
 	      <h3>${car.year} ${car.make} ${car.model}</h3>
 	      <p>Price Limit $${car.listedPrice}</p>
-	      <p class="expanded-block-element"><textarea rows="2" id="car-details-text" class="form-control input-sm chat-input" placeholder="notes" ></textarea></p>
+	      <p class="expanded-block-element"><textarea rows="2" id="car-details-text" class="form-control input-sm chat-input" placeholder="notes" >${car.comments}</textarea></p>
 	      <p>
 	      	<button type="button" id="${car.year} ${car.make} ${car.model}" class="car-details-button car-details btn btn-primary">
 	      	  Show Details
