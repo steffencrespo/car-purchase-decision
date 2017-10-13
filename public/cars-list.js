@@ -28,11 +28,15 @@ function renderListContentsView(list) {
 }
 
 function renderSingleCarObject(car) {
+	let knownBrands = ['BMW', 'Chevrolet', 'Ford'];
+
+	let carBrandImage = knownBrands.find(make => (car.make === make)) ? car.make+'.png' : 'generic.png';
+
 	let carView = 
 	`
 	<div class="col-sm-6 col-md-4">
 	  <div class="thumbnail">
-	    <img class="expanded-block-element" src="./images/${car.make}.png" alt="car make image">
+	    <img class="expanded-block-element" src="./images/${carBrandImage}" alt="car make image">
 	    <div class="caption">
 	      <h3>${car.year} ${car.make} ${car.model}</h3>
 	      <p>Price Limit $${car.listedPrice}</p>
