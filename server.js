@@ -38,7 +38,7 @@ app.use('/api/users/', usersRouter);
 app.use('/api/auth/', authRouter);
 
 app.post('/purchaseList', passport.authenticate('jwt', {session: false}), (req, res) => {
-  const requiredFields = ['userId', 'make', 'model', 'year', 'listedPrice', 'sellerName'];
+  const requiredFields = ['userId', 'make', 'model', 'year'];
   for (let i=0; i<requiredFields.length; i++) {
     const field = requiredFields[i];
     if(!(field in req.body)) {

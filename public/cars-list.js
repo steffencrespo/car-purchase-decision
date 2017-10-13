@@ -135,7 +135,7 @@ function submitCarDetailsForm() {
 		car.sellerPhone = $('#car-seller-phone').val();
 		car.sellerEmail = $('#car-seller-email').val();
 		car.dealerUrl = $('#car-seller-website').val();
-		car.comments = '';
+		car.comments = $('#car-details').val();
 		saveNewCarDetails(car);
 	});
 }
