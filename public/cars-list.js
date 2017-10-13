@@ -81,7 +81,7 @@ function handleSignupSubmit() {
 }
 
 function handleLoginSubmit() {
-	$('#js-submit-login').on('click', function(e) {
+	$('#js-form-login').on('submit', function(e) {
 		e.preventDefault();
 		let user = {
 			username: $('#userName').val(),
