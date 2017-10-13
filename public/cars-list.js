@@ -21,9 +21,7 @@ function getCarsListForUser(callbackFn) {
 // takes a list of cars as parameter, which will be returned from a service
 // this function is passed as callback to the getCarListForUser method so it can get the list of cars as param
 function renderListContentsView(list) {
-	console.log(list.cars);
 	list.cars.map(car => {
-			console.log("2.", car);
 			$('#js-cars-list').append(renderSingleCarObject(car));
 		}
 	);
@@ -123,7 +121,6 @@ function handleMakeAnOfferButton() {
 }
 
 function submitCarDetailsForm() {
-	console.log('submitCarDetais loaded');
 	$('#js-car-details-form').submit(function(e) {
 		e.preventDefault();
 		let car = {};
@@ -161,7 +158,6 @@ function authenticateUser(user) {
 }
 
 function setUserIdOnLocalStorage(user) {
-	console.log(user.username);
 		localStorage.userId = $.ajax({
 		url: REGISTER+'/userId/'+user.username,
 		headers: {'contentType': 'application/json', 'Authorization': 'Bearer ' + localStorage.token},
@@ -223,7 +219,6 @@ function removeCar(carId) {
 }
 
 $(function() {
-	console.log('loading handlers');
 	getAndRenderCarsList();
 	loadAllLinkHandlers();
 });
