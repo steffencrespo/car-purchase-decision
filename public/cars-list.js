@@ -36,6 +36,7 @@ function renderSingleCarObject(car) {
 	    <div class="caption">
 	      <h3>${car.year} ${car.make} ${car.model}</h3>
 	      <p>Asking price $${car.listedPrice}</p>
+	      <!-- <p><textarea rows="2" id="car-details" class="form-control input-sm chat-input" placeholder="notes" ></textarea></p> -->
 	      <p><a href="#" class="btn btn-primary" role="button">Details</a> 
 	      	<!-- Button trigger modal -->
 	      	<button type="button" id="${car.year} ${car.make} ${car.model}" class="car-offer btn btn-default" data-toggle="modal" data-target="#exampleModal">
