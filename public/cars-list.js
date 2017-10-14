@@ -28,7 +28,7 @@ function renderListContentsView(list) {
 }
 
 function renderSingleCarObject(car) {
-	let knownBrands = ['BMW', 'Chevrolet', 'Ford'];
+	let knownBrands = ['BMW', 'Chevrolet', 'Ford', 'Fiat', 'Jeep', 'Chrysler', 'Dodge'];
 
 	let carBrandImage = knownBrands.find(make => (car.make === make)) ? car.make+'.png' : 'generic.png';
 
