@@ -40,7 +40,7 @@ function renderSingleCarObject(car) {
 	    <div class="caption">
 	      <h3>${car.year} ${car.make} ${car.model}</h3>
 	      <p>Price Limit $${car.listedPrice}</p>
-	      <p class="expanded-block-element"><textarea rows="2" id="car-details-text" class="form-control input-sm chat-input" placeholder="notes" >${car.comments}</textarea></p>
+	      <p class="expanded-block-element"><textarea rows="2" id="${car.id}" class="car-details-text form-control input-sm chat-input" placeholder="notes" >${car.comments}</textarea></p>
 	      <p>
 	      	<a href="#" id=${car.id} class="car-remove btn btn-default" role="button">Remove</a>
 	      </p>
@@ -62,6 +62,7 @@ function loadAllLinkHandlers() {
 	handleRemoveCarButton();
 	handleCarDetailsButton();
 	submitCarDetailsForm();
+	handleCarDetailsNotes();
 }
 
 function handleLearnMoreButton() {
@@ -112,6 +113,13 @@ function handleRemoveCarButton() {
 	$('#js-cars-list').on('click', '.car-remove', function(e) {
 		e.preventDefault();
 		removeCar(e.target.id);
+	});
+}
+
+function handleCarDetailsNotes() {
+	$('#js-cars-list').on('change', '.car-details-text', function(e) {
+		let textToSave = $(`#${e.target.id}`).val();
+		alert(`saving text ${textToSave} for ${e.target.id}`);
 	});
 }
 
