@@ -11,7 +11,7 @@ const {router: authRouter, basicStrategy, jwtStrategy} = require('./auth');
 mongoose.Promise = global.Promise;
 
 const {PORT, DATABASE_URL} = require('./config');
-const {CarsList, Car} = require('./models');
+const {Car} = require('./models');
 
 const app = express();
 
@@ -86,22 +86,22 @@ app.get('/purchaseList/:userId', passport.authenticate('jwt', {session: false}),
     );
 });
 
-app.put('/api/purchaseList/car', (req, res) => {
-	CarsList
-    .findById("59074c7c057aaffaafb0da64")
-    .then(
-      carsList => {
-        res.json({
-          carsList: carsList.cars.map(car => car.model)
-        });
-        // carsList.cars.map(car => console.log(car))
-      })
-    .catch(
-      err => {
-        console.error(err);
-        res.status(500).json({message: 'Internal server error'});
-      })
-});
+// app.put('/api/purchaseList/car', (req, res) => {
+// 	CarsList
+//     .findById("59074c7c057aaffaafb0da64")
+//     .then(
+//       carsList => {
+//         res.json({
+//           carsList: carsList.cars.map(car => car.model)
+//         });
+//         // carsList.cars.map(car => console.log(car))
+//       })
+//     .catch(
+//       err => {
+//         console.error(err);
+//         res.status(500).json({message: 'Internal server error'});
+//       })
+// });
 
 app.delete('/purchaseList/:id', passport.authenticate('jwt', {session: false}), (req, res) => {
 	Car
