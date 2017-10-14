@@ -42,9 +42,6 @@ function renderSingleCarObject(car) {
 	      <p>Price Limit $${car.listedPrice}</p>
 	      <p class="expanded-block-element"><textarea rows="2" id="car-details-text" class="form-control input-sm chat-input" placeholder="notes" >${car.comments}</textarea></p>
 	      <p>
-	      	<button type="button" id="${car.year} ${car.make} ${car.model}" class="car-details-button car-details btn btn-primary">
-	      	  Show Details
-	      	</button>
 	      	<a href="#" id=${car.id} class="car-remove btn btn-default" role="button">Remove</a>
 	      </p>
 	      <p class="expanded-block-element" hidden="true">Trim: ${car.trim}</p>
@@ -119,7 +116,7 @@ function handleRemoveCarButton() {
 }
 
 function handleCarDetailsButton() {
-	$('#js-cars-list').on('click', '.car-details-button', function(e) {
+	$('#car-details-button').on('click', function(e) {
 		e.preventDefault();
 		$('.expanded-block-element').toggle(100);
 	});
