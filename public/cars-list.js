@@ -36,13 +36,15 @@ function renderSingleCarObject(car) {
 	`
 	<div class="col-sm-6 col-md-4">
 	  <div class="thumbnail">
+	  	<a href="#" class="car-remove pull-right" role="button">
+	  		<span class="fa fa-times fa-2x" id=${car.id}></span>
+	  	</a>
 	    <img class="expanded-block-element" src="./images/${carBrandImage}" alt="car make image">
 	    <div class="caption">
 	      <h3>${car.year} ${car.make} ${car.model}</h3>
 	      <p>Price Limit $${car.listedPrice}</p>
-	      <p class="expanded-block-element"><textarea rows="2" id="${car.id}" class="car-details-text form-control input-sm chat-input" placeholder="notes" >${car.comments}</textarea></p>
-	      <p>
-	      	<a href="#" id=${car.id} class="car-remove btn btn-default" role="button">Remove</a>
+	      <p class="expanded-block-element">
+	      	<textarea rows="2" id="${car.id}" class="car-details-text form-control input-sm chat-input" placeholder="notes" >${car.comments}</textarea>
 	      </p>
 	      <p class="expanded-block-element" hidden="true">Trim: ${car.trim}</p>
 	      <p class="expanded-block-element" hidden="true">Engine: ${car.engine}</p>
@@ -120,6 +122,7 @@ function handleCarDetailsNotes() {
 	$('#js-cars-list').on('change', '.car-details-text', function(e) {
 		let textToSave = $(`#${e.target.id}`).val();
 		alert(`saving text ${textToSave} for ${e.target.id}`);
+		editCarDetails(e.target.id);
 	});
 }
 
@@ -205,6 +208,27 @@ function saveNewCarDetails(car) {
 		headers: {'contentType': 'application/json', 'Authorization': 'Bearer ' + localStorage.token},
 		async: false,
 		type: 'POST',
+		contentType: 'application/json',
+		dataType: 'json',
+		data: JSON.stringify(car),
+		success: function(data) {
+			$('.alert-success').toggle();
+			setTimeout(function() {
+			    window.location.href = '/purchase.html';
+			}, 500);
+		},
+		error: function(error) {
+			$('.alert-danger').append(error.statusText).toggle();
+		}
+	});
+}
+
+function editCarDetails(carId) {
+		$.ajax({
+		url: SAVE_CAR+`${carId}`,
+		headers: {'contentType': 'application/json', 'Authorization': 'Bearer ' + localStorage.token},
+		async: false,
+		type: 'PUT',
 		contentType: 'application/json',
 		dataType: 'json',
 		data: JSON.stringify(car),

@@ -86,15 +86,16 @@ app.get('/purchaseList/:userId', passport.authenticate('jwt', {session: false}),
     );
 });
 
-// app.put('/api/purchaseList/car', (req, res) => {
+// app.put('/purchaseList/:carId', passport.authenticate('jwt', {session: false}), (req, res) => {
 // 	CarsList
-//     .findById("59074c7c057aaffaafb0da64")
+//     .findByIdAndUpdate({req.params.carId}, {
+//       comments: req.body.comments
+//     })
 //     .then(
-//       carsList => {
+//       cars => {
 //         res.json({
-//           carsList: carsList.cars.map(car => car.model)
+//           cars: cars.map(car => car.apiRepr())
 //         });
-//         // carsList.cars.map(car => console.log(car))
 //       })
 //     .catch(
 //       err => {
