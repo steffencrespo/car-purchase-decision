@@ -36,8 +36,8 @@ function renderSingleCarObject(car) {
 	`
 	<div class="col-sm-6 col-md-4">
 	  <div class="thumbnail">
-	  	<a href="#" class="car-remove pull-right" role="button">
-	  		<span class="fa fa-times fa-2x" id=${car.id}></span>
+	  	<a href="#" id=${car.id} class="car-remove pull-right" role="button">
+	  		<span class="fa fa-times fa-2x"></span>
 	  	</a>
 	    <img class="expanded-block-element" src="./images/${carBrandImage}" alt="car make image">
 	    <div class="caption">
