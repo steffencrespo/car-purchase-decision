@@ -18,7 +18,7 @@ How to use this app
 2. Sign up by clicking the 'Get Started' button and fill out the user info form
   ![New User Form](/README-images/3-signup.png "Sign Up")
 3. Log in entering your credentials
-  ![Login](/README-images/4-login.png "Login Page")
+  <img src="/README-images/4-login.png" align="center" height="48" width="48" >
 4. The list view is going to be loaded and you will see your cars once you are logged in
   ![List View](/README-images/5-list-view.png "List View")
 5. Click 'Add new car' in the nav bar and enter the specifics of the models you want to buy
