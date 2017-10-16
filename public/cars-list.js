@@ -101,7 +101,6 @@ function handleLoginSubmit() {
 function handleLogoutLink() {
 	$('#js-logout-link').on('click', function() {
 		localStorage.clear();
-		alert("You are no longer logged in.");
 	});
 }
 
@@ -191,7 +190,10 @@ function registerNewUser(user) {
 		dataType: 'json',
 		data: JSON.stringify(user),
 		success: function(res) {
-			alert("Welcome");
+			$('.alert-success').toggle();
+			setTimeout(function() {
+			    window.location.href = '/purchase.html';
+			}, 1000);
 		}
 	});
 }
