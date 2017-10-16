@@ -34,16 +34,16 @@ Car Purchase Decisio API
 ------------------------
 ## This API is a regular CRUD with endpoints that allow a user to create, view, edit, and remove a car from the database  
 ### Users
-> [ GET | POST ] api/users/
-> [ GET ] api/users/userId/:username
+* > [ GET | POST ] api/users/
+* > [ GET ] api/users/userId/:username
 ### Authentication
-> [ POST ] api/auth/login
-> [ POST ] api/auth/refresh
+* > [ POST ] api/auth/login
+* > [ POST ] api/auth/refresh
 ### Cars
-> [ POST ] /purchaseList
-> [ GET ] /purchaseList/:userId
-> [ PUT ] /purchaseList/:carId
-> [ DELETE ] /purchaseList/:id
+* > [ POST ] /purchaseList
+* > [ GET ] /purchaseList/:userId
+* > [ PUT ] /purchaseList/:carId
+* > [ DELETE ] /purchaseList/:id
 
 What to expect for the short term future of this app
 ----------------------------------------------------
