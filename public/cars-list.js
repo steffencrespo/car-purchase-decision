@@ -27,6 +27,7 @@ function renderListContentsView(list) {
 	);
 }
 
+// this function is responsible for appending the car block to the list view page
 function renderSingleCarObject(car) {
 	let knownBrands = ['BMW', 'Chevrolet', 'Ford', 'Fiat', 'Jeep', 'Chrysler', 'Dodge'];
 
@@ -53,18 +54,6 @@ function renderSingleCarObject(car) {
 	</div>
 	`
 	return carView;
-}
-
-function loadAllLinkHandlers() {
-	handleLearnMoreButton();
-	handleSignupSubmit();
-	handleLoginSubmit();
-	handleLogoutLink();
-	handleAddNewCarButton();
-	handleRemoveCarButton();
-	handleCarDetailsButton();
-	submitCarDetailsForm();
-	handleCarDetailsNotes();
 }
 
 function handleLearnMoreButton() {
@@ -263,5 +252,13 @@ function removeCar(carId) {
 
 $(function() {
 	getAndRenderCarsList();
-	loadAllLinkHandlers();
+	handleLearnMoreButton();
+	handleSignupSubmit();
+	handleLoginSubmit();
+	handleLogoutLink();
+	handleAddNewCarButton();
+	handleRemoveCarButton();
+	handleCarDetailsButton();
+	submitCarDetailsForm();
+	handleCarDetailsNotes();
 });
