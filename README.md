@@ -12,17 +12,28 @@ Whacambuy helps you with a visual list of the car models that are under your rad
 
 How to use this app
 -------------------
-1. Sign up entering a username and a password of your choice
-2. Click 'Add new car' and enter the specifics of the models you want to buy
-3. Search the web and local auto traders
-4. Enter notes regarding your search: too hard to find? Too expensive? Gas-guzzling?
-5. Check the details of all the models to compare one by one
-6. Found out that the V8 sports you always wanted costs a fortune to maintain? Remove it
+1. On the welcome page, click Learn More for additional information
+  ![Welcome Page](/README-images/1-welcome.png "Welcome Page")
+  ![How To Use This App](/README-images/2-howto.png "How To Use")
+. Sign up by clicking the 'Get Started' button and fill out the user info form
+  ![New User Form](/README-images/3-signup.png "Sign Up")
+. Log in entering your credentials
+  ![Login](/README-images/4-login.png "Login Page")
+. The list view is going to be loaded and you will see your cars once you are logged in
+  ![List View](/README-images/5-list-view.png "List View")
+. Click 'Add new car' in the nav bar and enter the specifics of the models you want to buy
+  ![Add Car](/README-images/7-add-car.png "Add Car Form")
+. Search the web and local auto traders and add to your list including the max price you would pay
+. Enter notes regarding your search: too hard to find? Too expensive? Gas-guzzling?
+  ![Enter Notes](/README-images/8-edit-car.png "Edit Car Comments")
+. Click on 'Details' in the nav bar to see all the details of your models to compare one by one
+  ![Display Car Details](/README-images/6-simplified-list.png "Car Details")
+. Found out that the V8 sports you always wanted costs a fortune to maintain? Remove it by pressing the 'X' icon
 
 What to expect for the short term future of this app
 ----------------------------------------------------
-* Financing estimates
-* List of links to each one of the models you are tracking
+* The app intends to allow you to see financing estimates for your cars based on the limit price you input. It is not yet implemented though.
+* List of links to each one of the models you are tracking so that you can have specific, real world references to the dealers that are selling the ones you are interested.
 
 Technologies Used
 -----------------
