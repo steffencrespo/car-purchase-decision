@@ -86,23 +86,23 @@ app.get('/purchaseList/:userId', passport.authenticate('jwt', {session: false}),
     );
 });
 
-// app.put('/purchaseList/:carId', passport.authenticate('jwt', {session: false}), (req, res) => {
-// 	CarsList
-//     .findByIdAndUpdate({req.params.carId}, {
-//       comments: req.body.comments
-//     })
-//     .then(
-//       cars => {
-//         res.json({
-//           cars: cars.map(car => car.apiRepr())
-//         });
-//       })
-//     .catch(
-//       err => {
-//         console.error(err);
-//         res.status(500).json({message: 'Internal server error'});
-//       })
-// });
+app.put('/purchaseList/:carId', passport.authenticate('jwt', {session: false}), (req, res) => {
+	Car
+    .findByIdAndUpdate(req.params.carId, {
+      comments: req.body.comments
+    })
+    .then(
+      car => {
+        res.json({
+          car: car.apiRepr()
+        });
+      })
+    .catch(
+      err => {
+        console.error(err);
+        res.status(500).json({message: 'Internal server error'});
+      })
+});
 
 app.delete('/purchaseList/:id', passport.authenticate('jwt', {session: false}), (req, res) => {
 	Car

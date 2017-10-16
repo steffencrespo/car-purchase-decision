@@ -121,8 +121,8 @@ function handleRemoveCarButton() {
 function handleCarDetailsNotes() {
 	$('#js-cars-list').on('change', '.car-details-text', function(e) {
 		let textToSave = $(`#${e.target.id}`).val();
-		alert(`saving text ${textToSave} for ${e.target.id}`);
-		editCarDetails(e.target.id);
+		let changesToCar = {comments: e.target.value}
+		editCarDetails(e.target.id, changesToCar);
 	});
 }
 
@@ -223,15 +223,15 @@ function saveNewCarDetails(car) {
 	});
 }
 
-function editCarDetails(carId) {
+function editCarDetails(carId, changesToCar) {
 		$.ajax({
-		url: SAVE_CAR+`${carId}`,
+		url: SAVE_CAR+`/${carId}`,
 		headers: {'contentType': 'application/json', 'Authorization': 'Bearer ' + localStorage.token},
 		async: false,
 		type: 'PUT',
 		contentType: 'application/json',
 		dataType: 'json',
-		data: JSON.stringify(car),
+		data: JSON.stringify(changesToCar),
 		success: function(data) {
 			$('.alert-success').toggle();
 			setTimeout(function() {
