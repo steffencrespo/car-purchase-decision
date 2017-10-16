@@ -15,20 +15,20 @@ How to use this app
 1. On the welcome page, click Learn More for additional information
   ![Welcome Page](/README-images/1-welcome.png "Welcome Page")
   ![How To Use This App](/README-images/2-howto.png "How To Use")
-. Sign up by clicking the 'Get Started' button and fill out the user info form
+2. Sign up by clicking the 'Get Started' button and fill out the user info form
   ![New User Form](/README-images/3-signup.png "Sign Up")
-. Log in entering your credentials
+3. Log in entering your credentials
   ![Login](/README-images/4-login.png "Login Page")
-. The list view is going to be loaded and you will see your cars once you are logged in
+4. The list view is going to be loaded and you will see your cars once you are logged in
   ![List View](/README-images/5-list-view.png "List View")
-. Click 'Add new car' in the nav bar and enter the specifics of the models you want to buy
+5. Click 'Add new car' in the nav bar and enter the specifics of the models you want to buy
   ![Add Car](/README-images/7-add-car.png "Add Car Form")
-. Search the web and local auto traders and add to your list including the max price you would pay
-. Enter notes regarding your search: too hard to find? Too expensive? Gas-guzzling?
+6. Search the web and local auto traders and add to your list including the max price you would pay
+7. Enter notes regarding your search: too hard to find? Too expensive? Gas-guzzling?
   ![Enter Notes](/README-images/8-edit-car.png "Edit Car Comments")
-. Click on 'Details' in the nav bar to see all the details of your models to compare one by one
+8. Click on 'Details' in the nav bar to see all the details of your models to compare one by one
   ![Display Car Details](/README-images/6-simplified-list.png "Car Details")
-. Found out that the V8 sports you always wanted costs a fortune to maintain? Remove it by pressing the 'X' icon
+9. Found out that the V8 sports you always wanted costs a fortune to maintain? Remove it by pressing the 'X' icon
 
 What to expect for the short term future of this app
 ----------------------------------------------------
