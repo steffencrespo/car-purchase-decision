@@ -30,6 +30,21 @@ How to use this app
   ![Display Car Details](/README-images/6-simplified-list.png "Car Details")
 9. Found out that the V8 sports you always wanted costs a fortune to maintain? Remove it by pressing the 'X' icon
 
+Car Purchase Decisio API
+------------------------
+## This API is a regular CRUD with endpoints that allow a user to create, view, edit, and remove a car from the database  
+### Users
+> [ GET | POST ] api/users/
+> [ GET ] api/users/userId/:username
+### Authentication
+> [ POST ] api/auth/login
+> [ POST ] api/auth/refresh
+### Cars
+> [ POST ] /purchaseList
+> [ GET ] /purchaseList/:userId
+> [ PUT ] /purchaseList/:carId
+> [ DELETE ] /purchaseList/:id
+
 What to expect for the short term future of this app
 ----------------------------------------------------
 * The app intends to allow you to see financing estimates for your cars based on the limit price you input. It is not yet implemented though.
@@ -44,3 +59,5 @@ Technologies Used
 * jQuery
 * NodeJS
 * ExpressJS
+* MongoDB
+* Mongoose
