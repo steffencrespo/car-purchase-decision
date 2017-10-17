@@ -70,3 +70,5 @@ Technologies Used
 * ExpressJS
 * MongoDB
 * Mongoose
+* Heroku
+* Travis CI
