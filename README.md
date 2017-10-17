@@ -1,4 +1,4 @@
-https://travis-ci.org/steffencrespo/car-purchase-decision.svg?branch=master
+[![Build Status](https://travis-ci.org/steffencrespo/car-purchase-decision.svg?branch=master)](https://travis-ci.org/steffencrespo/car-purchase-decision)
 
 What Car Am I Going to Buy?
 ===========================
