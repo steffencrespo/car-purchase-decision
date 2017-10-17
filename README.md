@@ -30,20 +30,29 @@ How to use this app
   ![Display Car Details](/README-images/6-simplified-list.png "Car Details")
 9. Found out that the V8 sports you always wanted costs a fortune to maintain? Remove it by pressing the 'X' icon
 
-Car Purchase Decisio API
+Car Purchase Decision API
 ------------------------
 ## This API is a regular CRUD with endpoints that allow a user to create, view, edit, and remove a car from the database  
+
 ### Users
-* > [ GET | POST ] api/users/
-* > [ GET ] api/users/userId/:username
+Supported Methods | API URL | Purpose | Visibility
+----------------- | ------- | ------- | ---------
+[ GET - POST ] | api/users/ | returns an existing user or creates a new user | Public - Public
+[ GET ] | api/users/userId/:username | returns the user ID of a user given it's username | Protected
+
 ### Authentication
-* > [ POST ] api/auth/login
-* > [ POST ] api/auth/refresh
+Supported Methods | API URL | Purpose | Visibility
+----------------- | ------- | ------- | ---------
+[ POST ] | api/auth/login | returns the authentication token of a give user | Protected
+[ POST ] | api/auth/refresh | refreshes the authentication token of a user | Protected
+
 ### Cars
-* > [ POST ] /purchaseList
-* > [ GET ] /purchaseList/:userId
-* > [ PUT ] /purchaseList/:carId
-* > [ DELETE ] /purchaseList/:id
+Supported Methods | API URL | Purpose | Visibility 
+----------------- | ------- | ------- | ---------
+[ POST ] | /purchaseList | adds a new car item to the purchase list | Protected
+[ GET ] | /purchaseList/:userId | retrieves the list of cars for a given user by user id | Protected
+[ PUT ] | /purchaseList/:carId | modifies an existing car by car id | Protected
+[ DELETE ] | /purchaseList/:carId | removes a car from the list by car id | Protected
 
 What to expect for the short term future of this app
 ----------------------------------------------------
