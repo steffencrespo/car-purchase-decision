@@ -17,7 +17,7 @@ How to use this app
   ![How To Use This App](/README-images/2-howto.png "How To Use")
 2. Sign up by clicking the 'Get Started' button and fill out the user info form
   ![New User Form](/README-images/3-signup.png "Sign Up")
-3. Log in entering your credentials
+3. Log in entering your newly created or already existing credentials
   ![Login](/README-images/4-login.png "Login Page")
 4. The list view is going to be loaded and you will see your cars once you are logged in
   ![List View](/README-images/5-list-view.png "List View")
