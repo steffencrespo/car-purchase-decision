@@ -5,8 +5,12 @@ const SAVE_CAR = '/purchaseList';
 // will take care of calling the service and passing the returned data into the callback
 function getCarsListForUser(callbackFn) {
 	const options = {
-		headers: {'contentType': 'application/json', 'Authorization': 'Bearer ' + localStorage.token}
+		headers: {
+			'contentType': 'application/json',
+			'Authorization': 'Bearer ' + localStorage.token
+		}
 	};
+
 	fetch(`/purchaseList/${localStorage.userId}`, options)
 		.then(res => {
 			if(res.status === 401) {
@@ -64,7 +68,7 @@ function handleLearnMoreButton() {
 }
 
 function handleSignupSubmit() {
-	$('#js-submit-signup').submit(function(e) {
+	$('#form-signup').submit(function(e) {
 		e.preventDefault();
 		let user = {
 			username: $('#username-signup').val(),
