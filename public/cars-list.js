@@ -39,7 +39,7 @@ function renderSingleCarObject(car) {
 
 	let carView = 
 	`
-	<div class="col-sm-6 col-md-4">
+	<div class="col-sm-6 col-md-4 opaque">
 	  <div class="thumbnail">
 	  	<a href="#" class="car-remove pull-right" role="button">
 	  		<span id=${car.id} class="fa fa-times fa-2x"></span>

@@ -6,6 +6,21 @@ body {
     font: normal 14px Roboto,arial,sans-serif;
 }
 
+nav {
+    opacity: 0.5;
+}
+
+nav:hover, div:hover {
+    opacity: 1;
+    filter: alpha(opacity=50); /* For IE8 and earlier */
+}
+
+.container, body {
+    background: url(./images/rearview.jpg);
+    background-size: auto;
+    background-repeat: no-repeat;
+}
+
 .form-login {
     background-color: #EDEDED;
     padding-top: 10px;
@@ -43,4 +58,8 @@ input[required] {
 img {
     max-width:  100px;
     max-height:  100px;
+}
+
+.opaque {
+    opacity: 0.7;
 }
