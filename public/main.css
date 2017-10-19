@@ -26,7 +26,7 @@ div.jumbotron {
 
 .container, body {
     background: url(./images/rearview.jpg);
-    background-size: auto;
+    background-size: cover;
     background-repeat: no-repeat;
 }
 
