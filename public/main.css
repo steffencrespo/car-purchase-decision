@@ -19,6 +19,10 @@ nav:hover, div:hover {
     filter: alpha(opacity=50); /* For IE8 and earlier */
 }
 
+div.jumbotron {
+    background-color: transparent;
+}
+
 .container, body {
     background: url(./images/rearview.jpg);
     background-size: auto;
