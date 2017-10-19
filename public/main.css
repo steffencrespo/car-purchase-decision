@@ -11,6 +11,7 @@ nav {
     opacity: 0.5;
     padding-left: 120px;
     padding-right: 120px; 
+    background-color: black;
 }
 
 nav:hover, div:hover {
