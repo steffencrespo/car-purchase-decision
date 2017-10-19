@@ -35,7 +35,8 @@ div.jumbotron {
 }
 
 .form-login {
-    background-color: #EDEDED;
+    margin-top: 140px;
+    background-color: transparent;
     padding-top: 10px;
     padding-bottom: 20px;
     padding-left: 20px;
@@ -43,7 +44,7 @@ div.jumbotron {
     border-radius: 15px;
     border-color: #d2d2d2;
     border-width: 5px;
-    box-shadow:0 1px 0 #cfcfcf;
+    box-shadow:1px 2px 2px 2px #cfcfcf;
 }
 
 form h4 { 
