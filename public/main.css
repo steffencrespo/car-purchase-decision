@@ -4,10 +4,13 @@ body {
     background-color: #fff;
     -webkit-font-smoothing: antialiased;
     font: normal 14px Roboto,arial,sans-serif;
+    padding-top: 70px;
 }
 
 nav {
     opacity: 0.5;
+    padding-left: 120px;
+    padding-right: 120px; 
 }
 
 nav:hover, div:hover {
