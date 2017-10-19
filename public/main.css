@@ -3,7 +3,7 @@
 body {
     background-color: #fff;
     -webkit-font-smoothing: antialiased;
-    font: normal 14px Roboto,arial,sans-serif;
+    font: normal 14px Helvetica Neue,arial,sans-serif;
     padding-top: 70px;
 }
 
@@ -21,6 +21,7 @@ nav:hover, div:hover {
 
 div.jumbotron {
     background-color: transparent;
+    text-align: center;
 }
 
 .container, body {
