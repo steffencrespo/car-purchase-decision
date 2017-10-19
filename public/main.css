@@ -20,13 +20,17 @@ nav:hover, div:hover {
 }
 
 div.jumbotron {
-    background-color: transparent;
+    background-color: rgba(225, 240, 245, .7);
     text-align: center;
+}
+
+h1 {
+    font: normal 36px Impact, sans-serif;
 }
 
 .container, body {
     background: url(./images/rearview.jpg);
-    background-size: center;
+    background-size: cover;
     background-repeat: no-repeat;
 }
 
@@ -45,6 +49,7 @@ div.jumbotron {
     border-color: #d2d2d2;
     border-width: 5px;
     box-shadow: 0px 1px 1px 1px #cfcfcf;
+    background-color: rgba(225, 240, 245, .7);
 }
 
 form h4 { 
