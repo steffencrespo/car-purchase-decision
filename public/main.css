@@ -25,6 +25,10 @@ nav:hover, div:hover {
     background-repeat: no-repeat;
 }
 
+.navbar-brand {
+    font: bold 22px Roboto,arial,sans-serif;
+}
+
 .form-login {
     background-color: #EDEDED;
     padding-top: 10px;
