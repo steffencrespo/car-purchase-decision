@@ -71,7 +71,7 @@ app.post('/purchaseList', passport.authenticate('jwt', {session: false}), (req, 
 app.get('/purchaseList/:userId', passport.authenticate('jwt', {session: false}), (req, res) => {
   Car
     .findByUserId(req.params.userId)
-    .limit(10)
+    .sort({make: 1})
     .then(cars => {
       res.json({
         cars: cars.map(
