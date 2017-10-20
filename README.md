@@ -26,7 +26,7 @@ How to use this app
 6. Search the web and local auto traders and add to your list including the max price you would pay
 7. Enter notes regarding your search: too hard to find? Too expensive? Gas-guzzling?
   ![Enter Notes](/README-images/8-edit-car.png "Edit Car Comments")
-8. Click on 'Details' in the nav bar to see all the details of your models to compare one by one
+8. Click on 'Change View' in the nav bar to see all the details of your models to compare one by one
   ![Display Car Details](/README-images/6-simplified-list.png "Car Details")
 9. Found out that the V8 sports you always wanted costs a fortune to maintain? Remove it by pressing the 'X' icon
 
