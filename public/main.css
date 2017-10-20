@@ -30,7 +30,7 @@ h1 {
 
 .container, body {
     background: linear-gradient( rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.001) ), url(./images/rearview.jpg);
-    background-size: cover;
+    background-size: center;
     background-repeat: no-repeat;
 }
 
@@ -81,4 +81,28 @@ img {
 
 .opaque {
     opacity: 0.9;
+}
+
+.btn-primary {
+  color: #fff;
+  background-color: #7741f4;
+  border-color: #2e6da4;
+}
+.btn-primary:focus,
+.btn-primary.focus {
+  color: #fff;
+  background-color: #9d41f4;
+  border-color: #122b40;
+}
+.btn-primary:hover {
+  color: #fff;
+  background-color: #9d41f4;
+  border-color: #204d74;
+}
+.btn-primary:active,
+.btn-primary.active,
+.open > .dropdown-toggle.btn-primary {
+  color: #fff;
+  background-color: #9d41f4;
+  border-color: #204d74;
 }
