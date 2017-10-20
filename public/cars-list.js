@@ -25,10 +25,15 @@ function getCarsListForUser(callbackFn) {
 // takes a list of cars as parameter, which will be returned from a service
 // this function is passed as callback to the getCarListForUser method so it can get the list of cars as param
 function renderListContentsView(list) {
-	list.cars.map(car => {
-			$('#js-cars-list').append(renderSingleCarObject(car));
-		}
-	);
+	if (list.cars.length === 0) {
+		$('#js-cars-list').append('<div class="row jumbotron"><i class="fa fa-car fa-5x" style="opacity: 0.5" aria-hidden="true"></i><h1>No cars yet. <a href="/car-details.html">Start here by adding your first.</a></h1></div>');
+	}
+	else {
+		list.cars.map(car => {
+				$('#js-cars-list').append(renderSingleCarObject(car));
+			}
+		);
+	}
 }
 
 // this function is responsible for appending the car block to the list view page
