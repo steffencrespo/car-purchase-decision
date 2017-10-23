@@ -174,7 +174,7 @@ function setUserIdOnLocalStorage(user) {
 		type: 'GET',
 		async: false,
 		success: function(res) {
-			// localStorage.token = res.authToken.responseJSON.authToken;
+			localStorage.token = res.authToken.responseJSON.authToken;
 		}
 	}).responseJSON.id;
 }
