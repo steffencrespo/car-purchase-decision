@@ -192,6 +192,9 @@ function registerNewUser(user) {
 			setTimeout(function() {
 			    window.location.href = '/purchase.html';
 			}, 1000);
+		},
+		error: function(error) {
+			$('.alert-danger').append(error.statusText).toggle();
 		}
 	});
 }
