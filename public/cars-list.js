@@ -189,9 +189,10 @@ function registerNewUser(user) {
 		data: JSON.stringify(user),
 		success: function(res) {
 			$('.alert-success').toggle();
+
 			setTimeout(function() {
-			    window.location.href = '/purchase.html';
-			}, 1000);
+			    authenticateUser(user);
+			}, 500);
 		},
 		error: function(error) {
 			$('.alert-danger').append(error.statusText).toggle();
