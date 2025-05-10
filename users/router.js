@@ -126,12 +126,15 @@ router.get('/', (req, res) => {
         .catch(() => res.status(500).json({message: 'Internal server error'}));
 });
 
-router.get('/userId/:username', passport.authenticate('jwt', {session: false}), (req, res) => {
-    let username = req.params.username;
-    User.findOne({username})
-        .then(user => {
-            return res.status(200).json({id: user._id});
-        });
-});
+router.get('/userId/:username',
+    passport.authenticate('jwt', { session: false }),
+    (req, res) => {
+        const username = req.params.username;
+        User.findOne({ username })
+            .then(user => {
+                return res.status(200).json({ id: user._id });
+            });
+    }
+);
 
 module.exports = {router};

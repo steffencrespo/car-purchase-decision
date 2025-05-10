@@ -46,7 +46,7 @@ const jwtStrategy = new JwtStrategy(
     {
         secretOrKey: JWT_SECRET,
         // Look for the JWT as a Bearer auth header
-        jwtFromRequest: ExtractJwt.fromAuthHeaderWithScheme('Bearer'),
+        jwtFromRequest: ExtractJwt.fromAuthHeaderAsBearerToken(),
         // Only allow HS256 tokens - the same as the ones we issue
         algorithms: ['HS256']
     },
@@ -55,4 +55,7 @@ const jwtStrategy = new JwtStrategy(
     }
 );
 
-module.exports = {basicStrategy, jwtStrategy};
+module.exports = {
+    basicStrategy,
+    jwtStrategy
+};

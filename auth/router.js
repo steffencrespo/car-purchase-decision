@@ -14,9 +14,9 @@ const createAuthToken = user => {
 
 const router = express.Router();
 
-router.post('/login', passport.authenticate('basic', {session: false}), (req, res) => {
-  const authToken = createAuthToken(req.user.apiRepr());
-  res.json({authToken});
+router.get("/login", passport.authenticate("basic", { session: false }), (req, res) => {
+  const authToken = createAuthToken(req.user);
+  res.json({ authToken });
 });
 
 router.post('/refresh', passport.authenticate('jwt', {session: false}), (req, res) => {
