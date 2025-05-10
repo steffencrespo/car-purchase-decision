@@ -30,7 +30,7 @@ passport.use(jwtStrategy);
 
 app.use(bodyParser.json());
 app.use(morgan('common'));
-app.use(express.static('public'));
+app.use(express.static(__dirname));
 
 app.use('/api/users/', usersRouter);
 app.use('/api/auth/', authRouter);

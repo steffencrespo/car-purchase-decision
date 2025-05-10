@@ -1,4 +1,5 @@
 [![Build Status](https://travis-ci.org/steffencrespo/car-purchase-decision.svg?branch=master)](https://travis-ci.org/steffencrespo/car-purchase-decision)
+[![GitHub Pages](https://img.shields.io/badge/view-demo-blue?logo=github)](https://steffencrespo.github.io/car-purchase-decision/)
 
 # 📊 What Car Am I Going to Buy?
 
