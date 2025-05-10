@@ -32,7 +32,7 @@ describe('/api/user', function() {
     beforeEach(function() {});
 
     afterEach(function() {
-        return User.remove({});
+        return User.deleteMany({});
     });
 
     describe('/api/users', function() {
