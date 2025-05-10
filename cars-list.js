@@ -186,7 +186,7 @@ function registerNewUser(user) {
 		contentType: 'application/json',
 		dataType: 'json',
 		data: JSON.stringify(user),
-		success: function(res) {
+		success: function() {
 			$('.alert-success').toggle();
 
 			setTimeout(function() {
@@ -214,7 +214,7 @@ function saveNewCarDetails(car) {
 		contentType: 'application/json',
 		dataType: 'json',
 		data: JSON.stringify(car),
-		success: function(data) {
+		success: function() {
 			$('.alert-success').toggle();
 			setTimeout(function() {
 			    window.location.href = '/purchase.html';
@@ -235,7 +235,7 @@ function editCarDetails(carId, changesToCar) {
 		contentType: 'application/json',
 		dataType: 'json',
 		data: JSON.stringify(changesToCar),
-		success: function(data) {
+		success: function() {
 			$('.alert-success').toggle();
 			setTimeout(function() {
 			    window.location.href = '/purchase.html';
@@ -253,7 +253,7 @@ function removeCar(carId) {
 		headers: {'contentType': 'application/json', 'Authorization': 'Bearer ' + localStorage.token},
 		async: false,
 		type: 'DELETE',
-		success: function(data) {
+		success: function() {
 			$('.alert-success').toggle();
 			setTimeout(function() {
 			    window.location.href = '/purchase.html';

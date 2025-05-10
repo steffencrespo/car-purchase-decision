@@ -105,7 +105,7 @@ app.put('/purchaseList/:carId', passport.authenticate('jwt', {session: false}), 
 app.delete('/purchaseList/:id', passport.authenticate('jwt', {session: false}), (req, res) => {
 	Car
     .findByIdAndRemove(req.params.id)
-    .then(car => res.status(204).end())
+    .then(() => res.status(204).end())
     .catch(() => res.status(500).json({message: 'Internal server error'}));
 });
 
