@@ -108,48 +108,66 @@ function App() {
     };
 
     return (
-        <div style={{ padding: "2rem", maxWidth: "600px", margin: "auto" }}>
-            <h1>What Car Am I Going to Buy?</h1>
+        <div className="p-8 max-w-3xl mx-auto">
+            <h1 className="text-3xl font-bold text-gray-900 dark:text-gray-100 mb-6">
+                What Car Am I Going to Buy?
+            </h1>
 
             {!auth.token && (
-                <form onSubmit={handleLogin}>
-                    <h2>Login</h2>
+                <form onSubmit={handleLogin} className="mb-8 space-y-4 bg-white dark:bg-zinc-900 p-6 rounded shadow">
+                    <h2 className="text-xl font-semibold text-gray-800 dark:text-gray-100">Login</h2>
                     <input
                         type="text"
                         placeholder="Username"
                         value={credentials.username}
                         onChange={(e) => setCredentials({ ...credentials, username: e.target.value })}
+                        className="w-full px-3 py-2 border border-gray-300 dark:border-zinc-700 rounded bg-white dark:bg-zinc-800 text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-blue-500"
                     />
                     <input
                         type="password"
                         placeholder="Password"
                         value={credentials.password}
                         onChange={(e) => setCredentials({ ...credentials, password: e.target.value })}
+                        className="w-full px-3 py-2 border border-gray-300 dark:border-zinc-700 rounded bg-white dark:bg-zinc-800 text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-blue-500"
                     />
-                    <button type="submit">Login</button>
+                    <button
+                        type="submit"
+                        className="w-full bg-blue-600 hover:bg-blue-700 text-white py-2 px-4 rounded font-semibold transition duration-150"
+                    >
+                        Login
+                    </button>
                 </form>
             )}
 
-            <form onSubmit={handleSubmit}>
+            <form onSubmit={handleSubmit} className="space-y-6 bg-white dark:bg-zinc-900 p-6 rounded shadow-md">
+                <h2 className="text-xl font-semibold text-gray-800 dark:text-gray-100 mb-4">Add a New Car</h2>
                 {Object.keys(formData).map((key) => (
-                    <div key={key} style={{ marginBottom: "0.5rem" }}>
-                        <label style={{ display: "block", fontWeight: "bold" }}>
-                            {key.charAt(0).toUpperCase() + key.slice(1)}:
+                    <div key={key}>
+                        <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1 capitalize">
+                            {key}
                         </label>
                         <input
                             type="text"
                             name={key}
                             value={formData[key]}
                             onChange={handleChange}
-                            style={{ width: "100%" }}
+                            className="w-full px-3 py-2 border border-gray-300 dark:border-zinc-700 rounded-md bg-white dark:bg-zinc-800 text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-blue-500"
                         />
                     </div>
                 ))}
-                <button type="submit">Add Car</button>
+
+                <button
+                    type="submit"
+                    className="w-full bg-green-600 hover:bg-green-700 text-white py-2 px-4 rounded-md font-semibold transition duration-150"
+                >
+                    Add Car
+                </button>
             </form>
 
-            <h2 style={{ marginTop: "2rem" }}>My Car List</h2>
-            <ul>
+            <h2 className="text-2xl font-semibold text-gray-800 dark:text-gray-100 mt-10 mb-4">
+                My Car List
+            </h2>
+            <ul className="list-disc pl-5 text-gray-800 dark:text-gray-100 space-y-2">
                 {carList.map((car, index) => (
                     <li key={index}>
                         <strong>{car.make} {car.model}</strong> — {car.year}
