@@ -106,7 +106,7 @@ app.delete('/purchaseList/:id', passport.authenticate('jwt', {session: false}), 
 	Car
     .findByIdAndRemove(req.params.id)
     .then(car => res.status(204).end())
-    .catch(err => res.status(500).json({message: 'Internal server error'}));
+    .catch(() => res.status(500).json({message: 'Internal server error'}));
 });
 
 app.use('*', (req, res) => {

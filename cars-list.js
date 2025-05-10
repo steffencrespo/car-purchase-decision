@@ -117,7 +117,6 @@ function handleRemoveCarButton() {
 
 function handleCarDetailsNotes() {
 	$('#js-cars-list').on('change', '.car-details-text', function(e) {
-		let textToSave = $(`#${e.target.id}`).val();
 		let changesToCar = {comments: e.target.value}
 		editCarDetails(e.target.id, changesToCar);
 	});
