@@ -29,9 +29,9 @@ carSchema.methods.apiRepr = function() {
 }
 
 carSchema.statics.findByUserId = function(id) {
-    return this.find( {userId: id} );
+    return this.find( { userId: id } );
 };
 
 const Car = mongoose.model('Car', carSchema)
 
-module.exports = {Car};
+module.exports = { Car };
