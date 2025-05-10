@@ -8,8 +8,6 @@ const passport = require('passport');
 const {router: usersRouter} = require('./users');
 const {router: authRouter, basicStrategy, jwtStrategy} = require('./auth');
 
-mongoose.Promise = global.Promise;
-
 const {PORT, DATABASE_URL} = require('./config');
 const {Car} = require('./models');
 
@@ -117,24 +115,24 @@ app.use('*', (req, res) => {
 
 let server;
 
-function runServer(databaseUrl=DATABASE_URL, port=PORT) {
-  console.log(`Attempting to connect to port ${port}`);
-  return new Promise((resolve, reject) => {
-    mongoose.connect(databaseUrl, err => {
-      if(err) {
-        return reject(err);
-      } 
-        server = app.listen(port, () => {
-                console.log(`Your app is listening on port ${port}`);
-                resolve();
-        })
-        .on('error', err => {
-          mongoose.disconnect();
-          reject(err);
+async function runServer(databaseUrl = DATABASE_URL, port = PORT) {
+    console.log(`Attempting to connect to port ${port}`);
+    try {
+        await mongoose.connect(databaseUrl, {
+            useNewUrlParser: true,
+            useUnifiedTopology: true,
         });
-      });
-  });
+
+        server = app.listen(port, () => {
+            console.log(`Your app is listening on port ${port}`);
+        });
+
+    } catch (err) {
+        console.error('Failed to connect to MongoDB or start server:', err);
+        throw err;
+    }
 }
+
 
 function closeServer() {
   return mongoose.disconnect().then(() => {
@@ -151,8 +149,11 @@ function closeServer() {
 }
 
 if (require.main === module) {
-  console.log('calling server.js as Main')
-  runServer().catch(err => console.error(err));
-};
+    console.log('calling server.js as Main')
+    runServer().catch(err => {
+        console.error(err);
+        process.exit(1);
+    });
+}
 
 module.exports = {app, runServer, closeServer};
