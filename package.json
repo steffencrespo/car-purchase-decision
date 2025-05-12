@@ -6,6 +6,8 @@
   "scripts": {
     "test": "mocha --require test/setup.js",
     "start": "node backend/server.js",
+    "seed": "node backend/scripts/seed-users.js",
+    "create:user": "node backend/scripts/create-user.js",
     "lint": "eslint ."
   },
   "author": "leonardo steffen",

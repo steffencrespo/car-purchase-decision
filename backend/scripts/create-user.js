@@ -16,9 +16,11 @@ async function run() {
             process.exit(0);
         }
 
+        const hashedPassword = await User.hashPassword('12345');
+
         const user = await User.create({
             username: 'leo2',
-            password: '12345',
+            password: hashedPassword,
             firstName: 'Leo',
             lastName: 'Steffen'
         });
