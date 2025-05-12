@@ -4,7 +4,7 @@
   "description": "allows you to build a list of all the cars you are interested in buying, then helps you organize your decision process and conduct the purchase negotiation",
   "main": "backend/server.js",
   "scripts": {
-    "test": "mocha",
+    "test": "mocha --require test/setup.js",
     "start": "node backend/server.js",
     "lint": "eslint ."
   },

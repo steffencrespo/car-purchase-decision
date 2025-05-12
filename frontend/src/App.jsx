@@ -34,7 +34,7 @@ function App() {
         e.preventDefault();
         try {
             const loginRes = await fetch("http://localhost:8080/api/auth/login", {
-                method: "GET",
+                method: "POST",
                 headers: {
                     Authorization: "Basic " + btoa(`${credentials.username}:${credentials.password}`)
                 }

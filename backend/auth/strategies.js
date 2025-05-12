@@ -10,36 +10,29 @@ const {
 const { User } = require('../users/models');
 const { JWT_SECRET } = require('../config');
 
-const basicStrategy = new BasicStrategy((username, password, callback) => {
-    let user;
-    User.findOne({username: username})
-        .then(_user => {
-            user = _user;
-            if (!user) {
-                // Return a rejected promise so we break out of the chain of .thens.
-                // Any errors like this will be handled in the catch block.
-                return Promise.reject({
-                    reason: 'LoginError',
-                    message: 'Incorrect username or password'
-                });
-            }
-            return user.validatePassword(password);
-        })
-        .then(isValid => {
-            if (!isValid) {
-                return Promise.reject({
-                    reason: 'LoginError',
-                    message: 'Incorrect username or password'
-                });
-            }
-            return callback(null, user);
-        })
-        .catch(err => {
-            if (err.reason === 'LoginError') {
-                return callback(null, false, err);
-            }
-            return callback(err, false);
-        });
+const basicStrategy = new BasicStrategy(async (username, password, done) => {
+    try {
+        console.log('Attempting login for:', username);
+        const user = await User.findOne({ username });
+
+        if (!user) {
+            console.log('User not found');
+            return done(null, false);
+        }
+
+        const isValid = await user.validatePassword(password);
+        if (!isValid) {
+            console.log('Invalid password');
+            return done(null, false);
+        }
+
+        console.log('Login successful');
+        return done(null, user);
+
+    } catch (err) {
+        console.error('Error in strategy:', err);
+        return done(err);
+    }
 });
 
 const jwtStrategy = new JwtStrategy(

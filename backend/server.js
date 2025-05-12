@@ -109,6 +109,10 @@ app.delete('/purchaseList/:id', passport.authenticate('jwt', {session: false}), 
     .catch(() => res.status(500).json({message: 'Internal server error'}));
 });
 
+app.get('/', (req, res) => {
+    res.status(200).send('<html><body><h1>Cars App is running</h1></body></html>');
+});
+
 app.use('*', (req, res) => {
     return res.status(404).json({message: 'Not Found'});
 });

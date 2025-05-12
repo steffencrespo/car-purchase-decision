@@ -5,8 +5,9 @@ const jwt = require('jsonwebtoken');
 const config = require('../config');
 
 const createAuthToken = user => {
-  return jwt.sign({user}, config.JWT_SECRET, {
-    subject: user.username,
+  const { username, firstName, lastName } = user;
+  return jwt.sign({ user: { username, firstName, lastName } }, config.JWT_SECRET, {
+    subject: username,
     expiresIn: config.JWT_EXPIRY,
     algorithm: 'HS256'
   });
@@ -14,9 +15,14 @@ const createAuthToken = user => {
 
 const router = express.Router();
 
-router.get("/login", passport.authenticate("basic", { session: false }), (req, res) => {
+router.post("/login", (req, res, next) => {
+  console.log('AUTH HEADER', req.headers.authorization);
+  next();
+}, passport.authenticate("basic", { session: false }), (req, res) => {
+  console.log('REQ.USER', req.user);
   const authToken = createAuthToken(req.user);
-  res.json({ authToken });
+  const { username, firstName, lastName } = req.user;
+  res.json({ authToken, user: { username, firstName, lastName } });
 });
 
 router.post('/refresh', passport.authenticate('jwt', {session: false}), (req, res) => {
