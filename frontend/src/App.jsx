@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import LoginForm from './components/LoginForm';
 import CarForm from './components/CarForm';
 import CarList from './components/CarList';
@@ -13,6 +13,43 @@ function App() {
         username: "",
         password: ""
     });
+
+    const [carList, setCarList] = useState([]);
+
+    const [formData, setFormData] = useState({
+        make: "",
+        model: "",
+        year: "",
+        trim: "",
+        engine: "",
+        dealerUrl: "",
+        listedPrice: "",
+        sellerName: "",
+        comments: ""
+    });
+
+    useEffect(() => {
+        const token = localStorage.getItem("authToken");
+        const userId = localStorage.getItem("userId");
+
+        if (token && userId) {
+            setAuth({ token, userId });
+
+            fetch(`http://localhost:8080/purchaseList/${userId}`, {
+                headers: {
+                    Authorization: `Bearer ${token}`
+                }
+            })
+                .then(res => res.ok ? res.json() : Promise.reject("Token inválido"))
+                .then(data => setCarList(data.cars || []))
+                .catch(err => {
+                    console.error("Erro ao restaurar sessão:", err);
+                    localStorage.removeItem("authToken");
+                    localStorage.removeItem("userId");
+                    setAuth({ token: null, userId: null });
+                });
+        }
+    }, []);
 
     const handleLogin = async (e) => {
         e.preventDefault();
@@ -49,6 +86,9 @@ function App() {
 
             const carListData = await carsRes.json();
 
+            localStorage.setItem("authToken", authToken);
+            localStorage.setItem("userId", userData.id);
+
             setAuth({ token: authToken, userId: userData.id });
             setCarList(carListData.cars || []);
             setCredentials({ username: "", password: "" });
@@ -59,19 +99,12 @@ function App() {
         }
     };
 
-    const [formData, setFormData] = useState({
-        make: "",
-        model: "",
-        year: "",
-        trim: "",
-        engine: "",
-        dealerUrl: "",
-        listedPrice: "",
-        sellerName: "",
-        comments: ""
-    });
-
-    const [carList, setCarList] = useState([]);
+    const handleLogout = () => {
+        localStorage.removeItem("authToken");
+        localStorage.removeItem("userId");
+        setAuth({ token: null, userId: null });
+        setCarList([]);
+    };
 
     const handleChange = (e) => {
         const { name, value } = e.target;
@@ -121,7 +154,7 @@ function App() {
 
         } catch (err) {
             console.error(err);
-            alert("Erro ao salvar carro");
+            alert("Error saving car. Please try again.");
         }
     };
 
@@ -130,9 +163,16 @@ function App() {
             <header className="p-6 bg-white dark:bg-zinc-800 shadow">
                 <div className="max-w-5xl mx-auto flex items-center justify-between">
                     <h1 className="text-2xl font-bold">What Car Am I Going to Buy?</h1>
-                    <button className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded">
-                        Toggle Dark Mode
-                    </button>
+                    {auth.token ? (
+                        <button
+                            onClick={handleLogout}
+                            className="bg-red-600 hover:bg-red-700 text-white px-4 py-2 rounded"
+                        >
+                            Logout
+                        </button>
+                    ) : (
+                        <span className="text-sm text-gray-400">Not logged in</span>
+                    )}
                 </div>
             </header>
 
@@ -146,11 +186,13 @@ function App() {
                         />
                     )}
 
-                    <CarForm
-                        formData={formData}
-                        onChange={handleChange}
-                        onSubmit={handleSubmit}
-                    />
+                    {auth.token && (
+                        <CarForm
+                            formData={formData}
+                            onChange={handleChange}
+                            onSubmit={handleSubmit}
+                        />
+                    )}
                 </div>
 
                 <div>
