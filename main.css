@@ -29,7 +29,7 @@ h1 {
 }
 
 .container, body {
-    background: linear-gradient( rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.001) ), url(./images/rearview.jpg);
+    background: linear-gradient( rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.001) ), url(frontend/src/images/rearview.jpg);
     background-size: center;
     background-repeat: no-repeat;
 }

@@ -60,7 +60,30 @@ function App() {
         comments: ""
     });
 
-    const [carList, setCarList] = useState([]);
+    const [carList, setCarList] = useState([
+        {
+            make: "Toyota",
+            model: "Corolla",
+            year: "2020",
+            trim: "XEi",
+            engine: "2.0 Flex",
+            listedPrice: "R$ 98.000",
+            sellerName: "AutoShopping SP",
+            dealerUrl: "https://www.toyotabrasil.com.br",
+            comments: "Bem conservado, única dona."
+        },
+        {
+            make: "Honda",
+            model: "Civic",
+            year: "2018",
+            trim: "EXL",
+            engine: "2.0",
+            listedPrice: "R$ 91.500",
+            sellerName: "Particular",
+            dealerUrl: "https://www.honda.com.br",
+            comments: "Revisões feitas, pneus novos."
+        }
+    ]);
 
     const handleChange = (e) => {
         const { name, value } = e.target;
