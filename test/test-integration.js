@@ -8,11 +8,11 @@ const mongoose = require('mongoose');
 const should = chai.should();
 const expect = chai.expect;
 
-const {Car} = require('../models');
-const {User} = require('../users/models');
-const {app, runServer, closeServer} = require('../server');
-const {TEST_DATABASE_URL} = require('../config');
-const {JWT_SECRET} = require('../config');
+const {Car} = require('../backend/models');
+const {User} = require('../backend/users/models');
+const {app, runServer, closeServer} = require('../backend/server');
+const {TEST_DATABASE_URL} = require('../backend/config');
+const {JWT_SECRET} = require('../backend/config');
 let testUserIds = [];
 
 chai.use(chaiHttp);

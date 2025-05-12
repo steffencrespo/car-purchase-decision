@@ -2,10 +2,10 @@
   "name": "car-purchase-decision",
   "version": "1.0.0",
   "description": "allows you to build a list of all the cars you are interested in buying, then helps you organize your decision process and conduct the purchase negotiation",
-  "main": "server.js",
+  "main": "backend/server.js",
   "scripts": {
     "test": "mocha",
-    "start": "node server.js",
+    "start": "node backend/server.js",
     "lint": "eslint ."
   },
   "author": "leonardo steffen",

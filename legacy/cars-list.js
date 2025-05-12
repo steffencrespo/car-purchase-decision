@@ -26,7 +26,7 @@ function getCarsListForUser(callbackFn) {
 // this function is passed as callback to the getCarListForUser method so it can get the list of cars as param
 function renderListContentsView(list) {
 	if (list.cars.length === 0) {
-		$('#js-cars-list').append('<div class="row jumbotron"><i class="fa fa-car fa-5x" style="opacity: 0.5" aria-hidden="true"></i><h1>No cars yet</h1><h2><a href="/car-details.html">Start here by adding your first</a></h2></div>');
+		$('#js-cars-list').append('<div class="row jumbotron"><i class="fa fa-car fa-5x" style="opacity: 0.5" aria-hidden="true"></i><h1>No cars yet</h1><h2><a href="/legacy/car-details.html">Start here by adding your first</a></h2></div>');
 	}
 	else {
 		list.cars.map(car => {
