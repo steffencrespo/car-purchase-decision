@@ -39,7 +39,18 @@ function App() {
 
             const userData = await userRes.json();
 
+            const carsRes = await fetch(`http://localhost:8080/purchaseList/${userData.id}`, {
+                headers: {
+                    Authorization: `Bearer ${authToken}`,
+                },
+            });
+
+            if (!carsRes.ok) throw new Error("Could not fetch car list");
+
+            const carListData = await carsRes.json();
+
             setAuth({ token: authToken, userId: userData.id });
+            setCarList(carListData.cars || []);
             setCredentials({ username: "", password: "" });
 
         } catch (err) {
@@ -60,30 +71,7 @@ function App() {
         comments: ""
     });
 
-    const [carList, setCarList] = useState([
-        {
-            make: "Toyota",
-            model: "Corolla",
-            year: "2020",
-            trim: "XEi",
-            engine: "2.0 Flex",
-            listedPrice: "R$ 98.000",
-            sellerName: "AutoShopping SP",
-            dealerUrl: "https://www.toyotabrasil.com.br",
-            comments: "Bem conservado, única dona."
-        },
-        {
-            make: "Honda",
-            model: "Civic",
-            year: "2018",
-            trim: "EXL",
-            engine: "2.0",
-            listedPrice: "R$ 91.500",
-            sellerName: "Particular",
-            dealerUrl: "https://www.honda.com.br",
-            comments: "Revisões feitas, pneus novos."
-        }
-    ]);
+    const [carList, setCarList] = useState([]);
 
     const handleChange = (e) => {
         const { name, value } = e.target;
