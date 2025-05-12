@@ -1,4 +1,7 @@
 import { useState } from "react";
+import LoginForm from './components/LoginForm';
+import CarForm from './components/CarForm';
+import CarList from './components/CarList';
 
 function App() {
     const [auth, setAuth] = useState({
@@ -67,6 +70,10 @@ function App() {
         }));
     };
 
+    const handleRemoveCar = (indexToRemove) => {
+        setCarList(prev => prev.filter((_, i) => i !== indexToRemove));
+    };
+
     const handleSubmit = async (e) => {
         e.preventDefault();
         if (!formData.model || !formData.make) return;
@@ -108,72 +115,37 @@ function App() {
     };
 
     return (
-        <div className="p-8 max-w-3xl mx-auto">
-            <h1 className="text-3xl font-bold text-gray-900 dark:text-gray-100 mb-6">
-                What Car Am I Going to Buy?
-            </h1>
-
-            {!auth.token && (
-                <form onSubmit={handleLogin} className="mb-8 space-y-4 bg-white dark:bg-zinc-900 p-6 rounded shadow">
-                    <h2 className="text-xl font-semibold text-gray-800 dark:text-gray-100">Login</h2>
-                    <input
-                        type="text"
-                        placeholder="Username"
-                        value={credentials.username}
-                        onChange={(e) => setCredentials({ ...credentials, username: e.target.value })}
-                        className="w-full px-3 py-2 border border-gray-300 dark:border-zinc-700 rounded bg-white dark:bg-zinc-800 text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-blue-500"
-                    />
-                    <input
-                        type="password"
-                        placeholder="Password"
-                        value={credentials.password}
-                        onChange={(e) => setCredentials({ ...credentials, password: e.target.value })}
-                        className="w-full px-3 py-2 border border-gray-300 dark:border-zinc-700 rounded bg-white dark:bg-zinc-800 text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-blue-500"
-                    />
-                    <button
-                        type="submit"
-                        className="w-full bg-blue-600 hover:bg-blue-700 text-white py-2 px-4 rounded font-semibold transition duration-150"
-                    >
-                        Login
+        <div className="min-h-screen bg-gray-100 dark:bg-zinc-900 text-gray-800 dark:text-gray-100">
+            <header className="p-6 bg-white dark:bg-zinc-800 shadow">
+                <div className="max-w-5xl mx-auto flex items-center justify-between">
+                    <h1 className="text-2xl font-bold">What Car Am I Going to Buy?</h1>
+                    <button className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded">
+                        Toggle Dark Mode
                     </button>
-                </form>
-            )}
+                </div>
+            </header>
 
-            <form onSubmit={handleSubmit} className="space-y-6 bg-white dark:bg-zinc-900 p-6 rounded shadow-md">
-                <h2 className="text-xl font-semibold text-gray-800 dark:text-gray-100 mb-4">Add a New Car</h2>
-                {Object.keys(formData).map((key) => (
-                    <div key={key}>
-                        <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1 capitalize">
-                            {key}
-                        </label>
-                        <input
-                            type="text"
-                            name={key}
-                            value={formData[key]}
-                            onChange={handleChange}
-                            className="w-full px-3 py-2 border border-gray-300 dark:border-zinc-700 rounded-md bg-white dark:bg-zinc-800 text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-blue-500"
+            <main className="max-w-5xl mx-auto px-4 py-8 grid gap-8 md:grid-cols-2">
+                <div className="space-y-8">
+                    {!auth.token && (
+                        <LoginForm
+                            credentials={credentials}
+                            setCredentials={setCredentials}
+                            onLogin={handleLogin}
                         />
-                    </div>
-                ))}
+                    )}
 
-                <button
-                    type="submit"
-                    className="w-full bg-green-600 hover:bg-green-700 text-white py-2 px-4 rounded-md font-semibold transition duration-150"
-                >
-                    Add Car
-                </button>
-            </form>
+                    <CarForm
+                        formData={formData}
+                        onChange={handleChange}
+                        onSubmit={handleSubmit}
+                    />
+                </div>
 
-            <h2 className="text-2xl font-semibold text-gray-800 dark:text-gray-100 mt-10 mb-4">
-                My Car List
-            </h2>
-            <ul className="list-disc pl-5 text-gray-800 dark:text-gray-100 space-y-2">
-                {carList.map((car, index) => (
-                    <li key={index}>
-                        <strong>{car.make} {car.model}</strong> — {car.year}
-                    </li>
-                ))}
-            </ul>
+                <div>
+                    <CarList carList={carList} onRemove={handleRemoveCar} />
+                </div>
+            </main>
         </div>
     );
 }
