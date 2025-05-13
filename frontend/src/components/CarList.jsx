@@ -3,7 +3,7 @@ import sampleImage from '../images/rearview.jpg';
 function CarList({ carList, onRemove }) {
     if (!carList.length) {
         return (
-            <div className="text-gray-600 dark:text-gray-400">
+            <div className="text-gray-600 dark:text-gray-400 text-center mt-6">
                 No cars added yet.
             </div>
         );
@@ -11,16 +11,16 @@ function CarList({ carList, onRemove }) {
 
     return (
         <div>
-            <h2 className="text-2xl font-semibold text-gray-800 dark:text-gray-100 mb-4 text-center">
+            <h2 className="text-2xl font-semibold text-gray-800 dark:text-gray-100 mb-6 text-center">
                 My Car List
             </h2>
 
-            <div className="flex flex-wrap gap-6 justify-center">
-                {carList.map((car, index) => (
+            <div className="grid grid-cols-[repeat(auto-fit,_minmax(280px,_1fr))] gap-y-8 gap-x-6 justify-center">
+
+            {carList.map((car, index) => (
                     <div
                         key={index}
-                        className="bg-white dark:bg-zinc-800 border border-gray-200 dark:border-zinc-700 rounded-md shadow-sm flex flex-col gap-1"
-                        style={{ width: '320px' }} // 🔒 largura fixa no estilo inline
+                        className="bg-white dark:bg-zinc-800 border border-red-500 dark:border-zinc-700 rounded-md shadow-sm flex flex-col p-4"
                     >
                         <div className="w-full h-[150px] overflow-hidden rounded-t-md">
                             <img
@@ -30,7 +30,7 @@ function CarList({ carList, onRemove }) {
                             />
                         </div>
 
-                        <div className="p-3">
+                        <div className="p-4">
                             <div className="flex justify-between items-start">
                                 <div className="pr-4">
                                     <h3 className="text-sm font-bold text-gray-900 dark:text-white leading-tight">
